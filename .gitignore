@@ -1,3 +1,4 @@
 common/settings.py
 __pycache__/
 .idea/
+venv/
