@@ -182,7 +182,7 @@ def findsuburb(request):
 
 
 def map(request):
-    base = "/home/ryanchen0008/IEproject/"
+    base = "/home/ryanchen0008/vic-migrant-health/"
     relative = "community/static/community/js/vic.json"
     path = relative
     path = base + relative
