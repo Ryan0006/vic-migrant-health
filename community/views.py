@@ -101,6 +101,7 @@ def compare(request):
         complementary = request.POST.getlist('complementary')
         disability = request.POST.getlist('disability')
         residential = request.POST.getlist('residential')
+
         Sendmail.send(email, name, postcode, mylng, homeland, overseas, noneng, first_name, second_name, third_name,
                  forth_name,
                  first_per, second_per, third_per, forth_per, kindergarten, primary, secondary, p12, mental,
@@ -184,7 +185,7 @@ def map(request):
     base = "/home/ryanchen0008/IEproject/"
     relative = "community/static/community/js/vic.json"
     path = relative
-    # path = base + relative
+    path = base + relative
     boundary_json = json.load(open(path))
     QUERY_NEARBY = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
     API_KEY = 'AIzaSyAFiH5opdvLigxZuCeagWWsn12-5NO-jEo'
