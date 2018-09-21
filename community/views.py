@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Community, Language, Country, Suburblocation, School, Hospital
 from lockdown.decorators import lockdown
 from .utils import Sendmail
+from common import settings
 import csv, requests, json
 
 
@@ -188,7 +189,6 @@ def map(request):
     path = base + relative
     boundary_json = json.load(open(path))
     QUERY_NEARBY = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
-    API_KEY = 'AIzaSyAFiH5opdvLigxZuCeagWWsn12-5NO-jEo'
     name = request.GET.get('name')
     postcode = request.GET.get('postcode')
     boundary = None
@@ -198,8 +198,8 @@ def map(request):
             break
     community = Community.objects.filter(name__iexact=name).first()
     location = Suburblocation.objects.get(community=community, postcode=postcode)
-    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=doctor&type=hospital' + '&key=' + API_KEY
-    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=dentist' + '&key=' + API_KEY
+    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
     r_med = requests.get(medical_query)
     r_den = requests.get(dentist_query)
     medicals = []
@@ -228,7 +228,8 @@ def map(request):
     special_list = School.objects.filter(type='Special', postcode=postcode)
     for spe in special_list:
         specials.append({'name':spe.name, 'type':spe.type, 'address_line':spe.address_line, 'address_town':spe.address_town, 'postcode':spe.postcode, 'contact':spe.contact, 'education_sector':spe.education_sector, 'latitude':spe.latitude, 'longitude':spe.longitude})
-    return render(request, "community/map.html", {"location": location,
+    return render(request, "community/map.html", {"api_key": settings.GOOGLE_MAPS_API_KEY,
+                                                  "location": location,
                                                   "boundary": boundary,
                                                   "medicals": medicals,
                                                   "dentists": dentists,
