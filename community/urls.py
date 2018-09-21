@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^readCountry/$', views.readCountry, name='readCountry'),
     url(r'^readSuburbLocation/$', views.readSuburbLocation, name='readSuburbLocation'),
     url(r'^readSchool/$', views.readSchool, name='readSchool'),
+    url(r'^readHospital/$', views.readHospital, name='readHospital'),
 ]

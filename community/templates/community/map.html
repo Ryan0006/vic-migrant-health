@@ -19,7 +19,7 @@
                 </div>
                 <div class="row map-item" style="margin-left: 50px;">
                     <div class="container">
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="hospital" /><label class="form-check-label map-filter-label" for="hospital">Hospital</label></div>
+                        <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="hospital" onchange="hospital_marker();"/><label class="form-check-label map-filter-label" for="hospital">Hospital</label></div>
                         <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="medical" onchange="health_marker('medical');"/><label class="form-check-label map-filter-label" for="medical">Medical Site</label></div>
                         <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="dentist" onchange="health_marker('dentist');"/><label class="form-check-label map-filter-label" for="dentist">Dentist</label></div>
                     </div>
@@ -52,6 +52,7 @@
                 var map;
                 var iconBase = '{% static 'community/images' %}/';
                 var markergroup = {
+                    'hospital': {'place':{{ hospitals|safe }}, 'marker':[]},
                     'medical': {'place_id':{{ medicals|safe }}, 'marker':[]},
                     'dentist': {'place_id':{{ dentists|safe }}, 'marker':[]},
                     'primary': {'place':{{ primary|safe }}, 'marker':[]},
@@ -122,6 +123,40 @@
                 }
 
 
+                function hospital_marker(){
+                    if (document.getElementById('hospital').checked) {
+                        place = markergroup['hospital'].place;
+                        for (let i in place) {
+                            let infowindow = new google.maps.InfoWindow();
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: {lat: place[i].latitude, lng: place[i].longitude},
+                                animation: google.maps.Animation.DROP
+                            });
+                            marker.setIcon(iconBase + 'hospital.png');
+                            var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
+                            content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
+                            content = content + '<strong>Type:</strong> ' + place[i].type + '<br>';
+                            content = content + '</div>';
+                            infowindow.setContent(content);
+                            google.maps.event.addListener(marker, 'click', function() {
+                                if (typeof activeInfoWindow != "undefined") {
+                                    activeInfoWindow.close(map, this);
+                                }
+                                infowindow.open(map, this);
+                                activeInfoWindow = infowindow;
+                            });
+                            markergroup['hospital'].marker.push(marker);
+                        }
+                    } else {
+                        for (let i in markergroup['hospital'].marker) {
+                            markergroup['hospital'].marker[i].setVisible(false);
+                        }
+                    }
+                    if (typeof activeInfoWindow != "undefined") {
+                        activeInfoWindow.close(map, this);
+                    }
+                }
 
 
                 function school_marker(param){
@@ -144,7 +179,7 @@
                                 marker.setIcon(iconBase + 'special.png');
                             }
                             var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
-                            content = content + '<strong>Address:</strong> ' + place[i].address_line + place[i].address_town + ',' + place[i].postcode + '<br>';
+                            content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
                             content = content + '<strong>Type:</strong> ' + place[i].type + ' School' + '<br>';
                             content = content + '<strong>Contact:</strong> ' + place[i].contact + '<br>';
                             content = content + '<strong>Education Sector:</strong> ' + place[i].education_sector + '<br>';

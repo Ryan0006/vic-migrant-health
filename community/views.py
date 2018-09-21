@@ -212,10 +212,14 @@ def map(request):
         den_array = r_den.json()['results']
         for den in den_array:
             dentists.append(den['place_id'])
+    hospitals = []
     primaries = []
     secondaries = []
     pri_secs = []
     specials = []
+    hospital_list = Hospital.objects.filter(suburb=community.name, postcode=postcode)
+    for hos in hospital_list:
+        hospitals.append({'name': hos.name, 'type': hos.type, 'address_line': hos.street_number + ' ' + hos.road_name + ' ' + hos.road_type, 'address_town': hos.suburb, 'postcode': hos.postcode, 'latitude': hos.latitude, 'longitude': hos.longitude})
     primary_list = School.objects.filter(type='Primary', postcode=postcode)
     for pri in primary_list:
         primaries.append({'name':pri.name, 'type':pri.type, 'address_line':pri.address_line, 'address_town':pri.address_town, 'postcode':pri.postcode, 'contact':pri.contact, 'education_sector':pri.education_sector, 'latitude':pri.latitude, 'longitude':pri.longitude})
@@ -231,6 +235,7 @@ def map(request):
     return render(request, "community/map.html", {"api_key": settings.GOOGLE_MAPS_API_KEY,
                                                   "location": location,
                                                   "boundary": boundary,
+                                                  "hospitals": hospitals,
                                                   "medicals": medicals,
                                                   "dentists": dentists,
                                                   "primary": primaries,
@@ -241,7 +246,7 @@ def map(request):
 
 
 def readHospital(request):
-    with open("community/static/community/csv/Hospital_Locations.csv") as f:
+    with open("community/static/community/csv/hospital_locations.csv") as f:
         reader = csv.reader(f)
         header = True
         for row in reader:
@@ -249,14 +254,15 @@ def readHospital(request):
                 header = False
             else:
                 _, created = Hospital.objects.get_or_create(
-                    name=row[0],
-                    type=row[1],
-                    street_number=row[2],
-                    road_name=row[3],
-                    road_type=row[4],
-                    suburb=row[5],
-                    latitude=row[8],
-                    longitude=row[7],
+                    name=row[2],
+                    type=row[3],
+                    street_number=row[4],
+                    road_name=row[5],
+                    road_type=row[6],
+                    suburb=row[7],
+                    postcode=row[9],
+                    latitude=row[1],
+                    longitude=row[0],
                 )
     return render(request, "community/index.html", {})
 

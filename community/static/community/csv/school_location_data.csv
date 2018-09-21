@@ -1537,10 +1537,10 @@ Government,Boronia K-12 College,Pri/Sec,35-37 Albert Avenue,Boronia,3155,03 9760
 Government,Tarneit P-9 College,Pri/Sec,21-23 Brinbrook Street,Tarneit,3029,03 9749 0506,144.6807343,-37.8365064
 Government,Benalla P-12 College,Pri/Sec,20 Faithfull Street,Benalla,3672,03 5761 2777,145.963847,-36.553372
 Government,Parkville College,Special,900-930 Park Street,Parkville,3052,03 5421 3100,144.94736,-37.776815
-Independent,Wesley College,Pri/Sec,577 St Kilda Road,MELBOURNE,3004,03 8102 6100,144.982144,-37.84883
+Independent,Wesley College,Pri/Sec,577 St Kilda Road,Melbourne,3004,03 8102 6100,144.982144,-37.84883
 Independent,Korowa Anglican Girls' School,Pri/Sec,10 - 16 Ranfurlie Crescent,GLEN IRIS,3146,03 9811 0200,145.054637,-37.861454
 Catholic,Parade College,Secondary,1436 Plenty Road,BUNDOORA,3083,03 9468 3300,145.066978,-37.690178
-Catholic,Simonds Catholic College,Secondary,273 Victoria Street,WEST MELBOURNE,3003,03 9321 9200,144.952883,-37.805971
+Catholic,Simonds Catholic College,Secondary,273 Victoria Street,WEST Melbourne,3003,03 9321 9200,144.952883,-37.805971
 Catholic,Christian Brothers' College St Kilda,Secondary,11 Westbury Street,ST KILDA EAST,3183,03 9529 6611,144.997001,-37.859365
 Catholic,St Patrick's College Ballarat,Secondary,1431 Sturt Street,BALLARAT,3350,03 5331 1688,143.831558,-37.559711
 Catholic,St Patrick's School,Primary,119 Drummond Street South,BALLARAT,3350,03 5332 7680,143.847147,-37.564397
@@ -1552,7 +1552,7 @@ Catholic,Sacred Heart School,Primary,20 Newcastle Street,NEWPORT,3015,03 9391 62
 Catholic,St Mary's School,Primary,118 Cecil Street,WILLIAMSTOWN,3016,03 9397 7926,144.900894,-37.863498
 Independent,Ruyton Girls' School,Pri/Sec,12 Selbourne Road,KEW,3101,03 9819 2422,145.039181,-37.811111
 Independent,Caulfield Grammar School,Pri/Sec,217 Glen Eira Road,ST KILDA EAST,3183,03 9524 6300,145.004887,-37.877377
-Catholic,St Michael's School,Primary,8-14 Brougham Street,MELBOURNE NORTH,3051,03 9329 9206,144.946246,-37.793305
+Catholic,St Michael's School,Primary,8-14 Brougham Street,Melbourne NORTH,3051,03 9329 9206,144.946246,-37.793305
 Catholic,St Patrick's School,Primary,Ovens Street,WANGARATTA,3677,03 5721 5795,146.32195,-36.356163
 Catholic,Presentation College Windsor,Secondary,187 Dandenong Road,WINDSOR,3181,03 8517 2777,144.9947188,-37.85764134
 Catholic,St Mary's School,Primary,214 Dandenong Road,ST KILDA EAST,3183,03 9510 7420,144.997592,-37.859021
@@ -1651,7 +1651,7 @@ Catholic,St Mary's School,Primary,Moore Street,ARARAT,3377,03 5352 1796,142.9386
 Catholic,St Joseph's College,Secondary,21 Dickson Street,ECHUCA,3564,03 5482 2577,144.743369,-36.118153
 Catholic,St Patrick's School,Primary,9-11 William Street,PORT FAIRY,3284,03 5568 1371,142.2316746,-38.38612553
 Catholic,St Joseph's School,Primary,Campaspe Street,ROCHESTER,3561,03 5484 1797,144.701175,-36.36476136
-Catholic,St Aloysius College,Secondary,31 Curran Street,NORTH MELBOURNE,3051,03 9329 0411,144.942875,-37.792892
+Catholic,St Aloysius College,Secondary,31 Curran Street,North Melbourne,3051,03 9329 0411,144.942875,-37.792892
 Catholic,All Saints Parish School,Primary,Fawthrop Street,PORTLAND SOUTH,3305,03 5523 3654,141.592786,-38.359474
 Catholic,Catholic College Sale,Secondary,51-53 Desailly Street,SALE,3850,03 5143 9700,147.063779,-38.108707
 Catholic,St Augustine's College,Pri/Sec,Church Street,KYABRAM,3620,03 5851 3000,145.044713,-36.30955
@@ -2117,7 +2117,7 @@ Independent,Victory Lutheran College,Pri/Sec,28 Drage Road,WODONGA,3690,02 6057 
 Independent,Son Centre Christian College,Primary,141a Aerodrome Road,SWAN HILL,3585,03 5032 4199,143.546498,-35.377564
 Independent,Girton Grammar School,Pri/Sec,105 MacKenzie Street,BENDIGO,3550,03 5441 3114,144.270883,-36.761969
 Catholic,St Francis of the Fields School,Primary,Blucher Street,STRATHFIELDSAYE,3551,03 5439 3191,144.361293,-36.804466
-Catholic,Galilee Regional Catholic Primary School,Primary,301-319 Bank Street,SOUTH MELBOURNE,3205,03 9699 2928,144.954811,-37.836158
+Catholic,Galilee Regional Catholic Primary School,Primary,301-319 Bank Street,South Melbourne,3205,03 9699 2928,144.954811,-37.836158
 Independent,Casey Grammar School,Pri/Sec,3 New Holland Drive,CRANBOURNE EAST,3977,03 5991 0800,145.2928988,-38.11029539
 Catholic,St Brendan's School,Primary,19 Austin Road,SOMERVILLE,3912,03 5977 7277,145.1683969,-38.23365477
 Catholic,Mary MacKillop School,Primary,2 Ernst Wanke Road,NARRE WARREN NORTH,3804,03 8794 5777,145.311285,-37.995837
@@ -2156,7 +2156,7 @@ Independent,Mt Hira College,Pri/Sec,185 Perry Road,KEYSBOROUGH,3173,03 9709 0100
 Catholic,Lumen Christi School,Primary,260 - 278 Point Cook Road,POINT COOK,3030,03 9395 2555,144.753344,-37.892603
 Catholic,Trinity Catholic Primary School,Primary,103-129 Oak Grove Drive,NARRE WARREN SOUTH,3805,03 9704 1970,145.297985,-38.055386
 Catholic,Columba Catholic School,Primary,28-36 Hope Street,BUNYIP,3815,03 5629 5933,145.715864,-38.093263
-Independent,Stott's Colleges,Secondary,"Level 1-6, 168 Exhibition Street",MELBOURNE,3000,03 9663 3399,144.970559,-37.811535
+Independent,Stott's Colleges,Secondary,"Level 1-6, 168 Exhibition Street",Melbourne,3000,03 9663 3399,144.970559,-37.811535
 Independent,Glenvale School,Pri/Sec,395 Ironbark Road,YARRAMBAT,3091,03 9355 0788,145.1388114,-37.64322649
 Independent,Kamaruka,Special,52 River Street,SOUTH YARRA,3141,03 9826 0330,144.9976787,-37.83761581
 Independent,Geelong Baptist College,Pri/Sec,590 Anakie Road,LOVELY BANKS,3221,03 5276 1674,144.330286,-38.067137
@@ -2164,11 +2164,11 @@ Catholic,Lavalla Catholic College,Secondary,Kosciusko Street,TRARALGON,3844,03 5
 Independent,Mildura Christian College,Pri/Sec,1291 Karadoc Ave,IRYMPLE,3498,03 5024 5310,142.145318,-34.247423
 Independent,Haileybury Girls College,Pri/Sec,855 Springvale Road,KEYSBOROUGH,3173,03 9213 2222,145.1447668,-37.99554667
 Catholic,Antonine College,Pri/Sec,71 Grandview Avenue,PASCOE VALE SOUTH,3044,03 9354 1377,144.9427365,-37.74119138
-Independent,Ozford College,Secondary,Levels 7 & 9,MELBOURNE,3000,03 8663 7188,144.954425,-37.812887
+Independent,Ozford College,Secondary,Levels 7 & 9,Melbourne,3000,03 8663 7188,144.954425,-37.812887
 Independent,Berry Street Victoria Inc,Special,11 Tower Court,NOBLE PARK,3174,03 9429 9266,145.190186,-37.981547
 Independent,Yesodei HaTorah College,Pri/Sec,39 Dickens Street,ELWOOD,3184,03 9531 3203,144.983491,-37.873227
 Catholic,Cana Catholic Primary School,Primary,46-60 Banchory Avenue,HILLSIDE,3037,03 8390 9200,144.747148,-37.687916
-Independent,Holmes Secondary College,Secondary,185 Spring Street,MELBOURNE,3000,03 9662 2055,144.972271,-37.810302
+Independent,Holmes Secondary College,Secondary,185 Spring Street,Melbourne,3000,03 9662 2055,144.972271,-37.810302
 Catholic,St Luke's Catholic Primary School,Primary,629 Goulburn Valley Highway,SHEPPARTON NORTH,3631,03 5822 1834,145.412026,-36.324316
 Catholic,"St Francis of Assisi Primary School, Wodonga",Primary,214 Baranduda Boulevard,BARANDUDA,3691,02 6020 9100,146.939934,-36.173892
 Independent,Indie School Wodonga,Secondary,63 - 67 High Street,WODONGA,3690,02 6043 8200,146.889403,-36.118028
@@ -2202,14 +2202,14 @@ Catholic,St Brigid's School,Primary,25 Bayview Road,OFFICER,3809,03 5943 2447,14
 Catholic,St Francis de Sales Catholic Primary School,Primary,122 Paterson Drive,LYNBROOK,3975,03 8773 6700,145.252476,-38.059012
 Catholic,St Lawrence Catholic Primary School,Primary,93A Capesthorne Drive,DERRIMUT,3030,03 8390 5326,144.760518,-37.790684
 Independent,Christadelphian Heritage College Melbourne,Primary,16 Clevedon Road,THE BASIN,3154,03 9739 8126,145.322247,-37.859479
-Independent,Melbourne Grammar School,Pri/Sec,355 St Kilda Road,MELBOURNE,3004,03 9865 7555,144.9770931,-37.83359283
+Independent,Melbourne Grammar School,Pri/Sec,355 St Kilda Road,Melbourne,3004,03 9865 7555,144.9770931,-37.83359283
 Independent,Islamic College of Melbourne,Pri/Sec,83 Wootten Road,TARNEIT,3029,03 8742 1739,144.660376,-37.854236
 Independent,Southern Cross Grammar,Pri/Sec,2-20 Lancefield Drive,CAROLINE SPRINGS,3023,03 8363 2000,144.7396024,-37.71396413
 Catholic,MacKillop Specialist School,Special,25-33 Oxford Street,WHITTINGTON,3219,03 5248 2557,144.3871113,-38.17432485
 Independent,Cornish College,Pri/Sec,65 Riverend Road,BANGHOLME,3175,03 9773 1011,145.148761,-38.049197
 Independent,Melbourne Montessori School,Pri/Sec,4-6 Roselea Street,CAULFIELD SOUTH,3162,03 9528 4478,145.025671,-37.888167
 Catholic,St Francis of Assisi Catholic Primary School,Primary,45 Fairview Parade,TARNEIT,3029,03 9731 6004,144.6982297,-37.84829179
-Catholic,St Joseph's Flexible Learning Centre Melbourne,Special,385 Queensberry Street,NORTH MELBOURNE,3051,03 9269 6900,144.9549374,-37.80384382
+Catholic,St Joseph's Flexible Learning Centre Melbourne,Special,385 Queensberry Street,North Melbourne,3051,03 9269 6900,144.9549374,-37.80384382
 Independent,Glenroy Private,Pri/Sec,93 Daley Street,GLENROY,3046,03 9306 7988,144.9292633,-37.69777468
 Independent,Cathedral College Wangaratta,Pri/Sec,344 Wangaratta-Whitfield Road,WANGARATTA,3676,(03) 5722 2144,146.329913,-36.385946
 Independent,Koonwarra Village School,Primary,20-26 Koala Drive,KOONWARRA,3954,03 5664 2477,145.9439237,-38.54790897

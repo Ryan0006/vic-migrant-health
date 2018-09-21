@@ -91,6 +91,7 @@ class Hospital(models.Model):
     road_name = models.CharField(max_length=200, default="")
     road_type = models.CharField(max_length=200, default="")
     suburb = models.CharField(max_length=200, default="")
+    postcode = models.IntegerField(default=0)
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
 
