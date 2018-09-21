@@ -1,0 +1,72 @@
+{% extends 'community/base.html' %}
+
+{% block body %}
+<!-- start banner Area -->
+            {% load staticfiles %}
+<section class="banner-area relative" id="home" data-parallax="scroll" data-image-src="{% static 'community/images/header-bg-house.jpg' %}">
+    <div class="overlay-bg overlay">
+    </div>
+    <div class="container">
+        <div class="row fullscreen  d-flex align-items-center justify-content-end">
+            <div class="banner-content col-lg-12 col-md-12">
+                <h1>
+                    We Provide<span> Health Information</span> that Helps You <span>Live in Victoria</span>							
+                </h1>
+                <div class="row justify-content-center">
+                <a href="{% url 'community:findsuburb' %}" class="primary-btn2 header-btn btn-lg text-uppercase">Explore Now!</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</section>
+<!-- End banner Area -->
+<!-- start service Area-->
+<section class="service-area pt-100 pb-150" id="service">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Help migrants with health and other services</h1>
+                    <p>Our website aims to provide consolidated information to the recently migrated people in Victoria to achieve their best health outcomes.</p>
+                </div>
+            </div>
+        </div>	
+        <div class="row">
+            <div class="sigle-service col-lg-3 col-md-6">
+                <span class="lnr lnr-flag"></span>
+                <h4>Know where your fellows are</h4>
+                <p>
+                    Having trouble in finding someone who speak your language? We can help you to find a community to have free communication.
+                </p>
+            </div>
+            <div class="sigle-service col-lg-3 col-md-6">
+                <span class="lnr lnr-heart"></span>
+                <h4>Satisfy your health needs</h4>
+                <p>
+                    A list of health services can be used as filters when searching suburbs, we provide options including health services, education services, disability and aged care services.
+                </p>
+            </div>
+            <div class="sigle-service col-lg-3 col-md-6">
+                <span class="lnr lnr-magnifier"></span>
+                <h4>Community Information</h4>
+                <p>
+                    The system will provides you consolidated information for each surburb in Victoria. Information includes health, medical, education and cuture. 
+                </p>
+            </div>
+            <div class="sigle-service col-lg-3 col-md-6">
+                <span class="lnr lnr-chart-bars"></span>
+                <h4>Take care of kids</h4>
+                <p>
+                    We provide necessary immunization information. It includes vaccines offered to children, adolescents and adults at increased risk of vaccine-preventable disease.
+                </p >
+            </div>																		
+
+        </div>
+    </div>	
+</section>
+<!-- end service Area-->
+
+{% endblock %}
+

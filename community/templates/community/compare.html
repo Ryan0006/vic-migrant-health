@@ -1,0 +1,268 @@
+<!--https://codepen.io/adrianjacob/pen/KdVLXY-->
+{% extends 'community/base.html' %}
+
+{% block title %}Community Details{% endblock %}
+
+{% block body %}
+
+{% if result_list %}
+
+    
+
+{% load staticfiles %}
+<section class="compare-area relative" data-parallax="scroll" data-image-src="{% static 'community/images/compare-bg.jpg' %}">
+    <div class="overlay-bg overlay">
+    </div>
+    <div class="container">
+        <div class="row pt-150 pb-150 d-flex align-items-center justify-content-end">
+            <div class="banner-content col-lg-12 col-md-12 align-items-center">
+                <div class="row justify-content-center">
+                <h1>
+                    <span>Compare Suburbs</span>							
+                </h1>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</section>
+
+
+
+
+<div class="container">
+<article class="compare-table pt-50 pb-50">
+<div id="compare-num" data-number="{{ result_list|length }}" style="display: none"></div>
+<ul>
+    {% for community in result_list %}
+  <li class="bg-blue">
+    <button>{{ community.0.name }}</button>
+  </li>
+    {% endfor %}
+</ul>  
+    {% if filters %}<h4 class="pb-20"><i>Selected filters have been highlighted</i></h4>{% endif %}
+<table>
+  <thead>
+    <tr>
+      <th class="hide"></th>
+    {% for community in result_list %}
+        <th class="bg-blue pt-20 pb-20 stat"><span class="txt-l">{{ community.0.name }}</span></th>
+    {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>    
+    {% for community in result_list %}
+        {% if forloop.counter == 1 %}
+        <td class="txt-black">Postcode</td>
+        {% endif %}
+        <td class="stat"><span class="txt-l">{{ community.3 }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr>    
+    {% for community in result_list %}
+        {% if forloop.counter == 1 %}
+        <td class="txt-black">People Speaking {{ community.2.0 }}</td>
+        {% endif %}
+        <td class="stat"><span class="txt-l">{{ community.2.1 }}%</span></td>
+    {% endfor %}
+    </tr>
+    <tr>
+      <td class="txt-black">People Born Overseas</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.born_overseas }}%</span></td>
+    {% endfor %}
+    </tr>
+     <tr>
+      <td class="txt-black">People Speak Language Other Than English</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.except_eng }}%</span></td>
+    {% endfor %}
+    </tr>
+<!--Top 4 Cutural Group-->
+    <tr>
+      <td colspan="13" class="sep">Top 4 Cultural Groups</td>
+    </tr>
+    <tr>
+      <td class="txt-black">1st Cultural Group</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.culture_group1_name }}</span><br><span class="badge badge-secondary">{{ community.0.culture_group1_per }}%</span></td>
+    {% endfor %} 
+    </tr>
+    <tr>
+      <td class="txt-black">2nd Cultural Group</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.culture_group2_name }}</span><br><span class="badge badge-secondary">{{ community.0.culture_group2_per }}%</span></td>
+    {% endfor %} 
+    </tr>
+    <tr>
+      <td class="txt-black">3rd Cultural Group</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.culture_group3_name }}</span><br><span class="badge badge-secondary">{{ community.0.culture_group3_per }}%</span></td>
+    {% endfor %} 
+    </tr>
+    <tr>
+      <td class="txt-black">4th Cultural Group</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.culture_group4_name }}</span><br><span class="badge badge-secondary">{{ community.0.culture_group4_per }}%</span></td>
+    {% endfor %} 
+    </tr>
+<!--Education Services-->
+    <tr>
+      <td colspan="13" class="sep">Education Services (counts)</td>
+    </tr>
+    <tr {% if 'kindergarten' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Kindergarten</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.kindergarten }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'primary_school' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Primary School</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.primary_school }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'secondary_school' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Secondary School</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.secondary_school }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'p12_school' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">P-12 School</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.p12_school }}</span></td>
+    {% endfor %}
+    </tr>
+<!--Health Services-->
+    <tr>
+      <td colspan="13" class="sep">Health Services (counts)</td>
+    </tr>
+    <tr {% if 'mental_health' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Mental Health</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.mental_health }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'dental' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Dental Site</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.dental }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'general_practice' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">General Practice</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.general_practice }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'pharmacy' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Pharmacy</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.pharmacy }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'allied_health' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Allied Health Services</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.allied_health }}</span></td>
+    {% endfor %}
+    </tr>
+    <tr {% if 'complementary_health' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Complementary Health Services</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.complementary_health }}</span></td>
+    {% endfor %}
+    </tr>
+<!--Other Services-->
+    <tr>
+      <td colspan="13" class="sep">Other Services (counts)</td>
+    </tr>      
+     <tr {% if 'disability' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Disability Services</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.disability }}</span></td>
+    {% endfor %}
+    </tr>
+     <tr {% if 'residential_aged_care' in filters %}class="highlight"{% endif %}>
+      <td class="txt-black">Residential Aged Care Services</td>
+    {% for community in result_list %}
+        <td class="stat"><span class="txt-l">{{ community.0.residential_aged_care }}</span></td>
+    {% endfor %}
+    </tr> 
+    <tr>
+    <td class="hide"></td>
+    {% for community in result_list %}
+    <td class="stat"><a class="btn primary-btn2 header-btn1"
+           href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a></td>
+
+    {% endfor %}
+    </tr>
+
+  </tbody>
+</table>
+  
+</article>
+</div>
+<div class="container">
+    <form method="POST" action="{% url 'community:compare' %}">{% csrf_token %}
+        <label for="email">Send a copy of this report to email: </label>
+        <input type="text" id="email" name="email" size="40"/>
+        {% for community in result_list %}
+        <!--{% with overseas=community.0.born_overseas|stringformat:"f" %}-->
+        <!--{% with noneng=community.0.except_eng|stringformat:"f" %}-->
+        <!--{% with first_name=community.0.culture_group1_name %}-->
+        <!--{% with first=community.0.culture_group1_per|stringformat:"f" %}-->
+        <!--{% with item_json='{"name":"'|add:community.0.name|add:'","postcode":'|add:community.3|add:',"homeland":'|add:community.2.1|add:',"overseas":'|add:overseas|add:',"noneng":'|add:noneng|add:',"1st":'|add:first|add:',"2nd":'|add:community.2.1|add:',"3rd":'|add:community.2.1|add:',"4th":'|add:community.2.1|add:',"kindergarten":'|add:community.2.1|add:',"primary":'|add:community.2.1|add:',"secondary":'|add:community.2.1|add:',"p12":'|add:community.2.1|add:',"mental":'|add:community.2.1|add:',"dental":'|add:community.2.1|add:',"gp":'|add:community.2.1|add:',"pharmacy":'|add:community.2.1|add:',"allied":'|add:community.2.1|add:',"complementary":'|add:community.2.1|add:',"disability":'|add:community.2.1|add:',"residential":'|add:community.2.1|add:'}' %}-->
+            <input type="hidden" name="name" value="{{ community.0.name }}">
+            <input type="hidden" name="postcode" value={{ community.3 }}>
+            <input type="hidden" name="mylng" value={{ community.2.0 }}>
+            <input type="hidden" name="homeland" value={{ community.2.1 }}>
+            <input type="hidden" name="overseas" value={{ community.0.born_overseas }}>
+            <input type="hidden" name="noneng" value={{ community.0.except_eng }}>
+            <input type="hidden" name="first_name" value="{{ community.0.culture_group1_name }}">
+            <input type="hidden" name="second_name" value="{{ community.0.culture_group2_name }}">
+            <input type="hidden" name="third_name" value="{{ community.0.culture_group3_name }}">
+            <input type="hidden" name="forth_name" value="{{ community.0.culture_group4_name }}">
+            <input type="hidden" name="first_per" value={{ community.0.culture_group1_per }}>
+            <input type="hidden" name="second_per" value={{ community.0.culture_group2_per }}>
+            <input type="hidden" name="third_per" value={{ community.0.culture_group3_per }}>
+            <input type="hidden" name="forth_per" value={{ community.0.culture_group4_per }}>
+            <input type="hidden" name="kindergarten" value={{ community.0.kindergarten }}>
+            <input type="hidden" name="primary" value={{ community.0.primary_school }}>
+            <input type="hidden" name="secondary" value={{ community.0.secondary_school }}>
+            <input type="hidden" name="p12" value={{ community.0.p12_school }}>
+            <input type="hidden" name="mental" value={{ community.0.mental_health }}>
+            <input type="hidden" name="dental" value={{ community.0.dental }}>
+            <input type="hidden" name="gp" value={{ community.0.general_practice }}>
+            <input type="hidden" name="pharmacy" value={{ community.0.pharmacy }}>
+            <input type="hidden" name="allied" value={{ community.0.allied_health }}>
+            <input type="hidden" name="complementary" value={{ community.0.complementary_health }}>
+            <input type="hidden" name="disability" value={{ community.0.disability }}>
+            <input type="hidden" name="residential" value={{ community.0.residential_aged_care }}>
+
+        <!--{% endwith %}-->
+        <!--{% endwith %}-->
+        <!--{% endwith %}-->
+        <!--{% endwith %}-->
+        <!--{% endwith %}-->
+        {% endfor %}
+        <button type="submit">send</button>
+    </form>
+</div>
+{% else %}
+<!--Error-Message-->
+<section class="skill-area section-gap fullscreen align-items-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center pt-50 pb-50">
+                <i class="fas fa-frown fa-10x"></i>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <h1 style="color: white">Sorry, something wrong happened, please try other suburbs.</h1>
+            </div>
+        </div>
+</section>
+{% endif %}
+{% endblock %}

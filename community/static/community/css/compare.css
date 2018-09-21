@@ -1,0 +1,110 @@
+/* DIRTY Responsive pricing table CSS */
+/* https://codepen.io/adrianjacob/pen/KdVLXY */
+/* 
+- make mobile switch sticky
+*/
+.compare-table * {
+  box-sizing:border-box;
+  padding:5px, 5px;
+  margin:0;
+   outline: 0;
+}
+/* body {  */
+  /* font-family:Helvetica Neue,Helvetica,Arial,sans-serif; */
+  /* font-size:14px; */
+  /* padding:14px; */
+/* } */
+.compare-table article {
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  height:1000px;
+  position:relative;
+}
+.compare-table ul {
+  display:flex;
+  top:0px;
+  z-index:10;
+  padding-bottom:14px;
+}
+.compare-table li {
+  list-style:none;
+  flex:1;
+}
+.compare-table li:last-child {
+  border-right:1px solid #DDD;
+}
+.compare-table button {
+  width:100%;
+  /* border: 1px solid #DDD; */
+  /* border-right:0; */
+  /* border-top:0; */
+  /* padding: 10px; */
+  /* background:#FFF; */
+  /* font-size:14px; */
+  /* font-weight:bold; */
+  /* height:60px; */
+  /* color:#999 */
+}
+.compare-table li.active button {
+  background:#F5F5F5;
+  color:#000;
+}
+.compare-table table { border-collapse:collapse; table-layout:fixed; width:100%; }
+.compare-table th { background:#F5F5F5; display:none; }
+.compare-table td, th {
+  height:53px
+}
+.compare-table td,th { border:1px solid #DDD; padding:10px; empty-cells:show; }
+.compare-table td,th {
+  text-align:left;
+}
+.compare-table td+td, th+th {
+  text-align:center;
+  display:none;
+}
+.compare-table td.default {
+  display:table-cell;
+}
+.compare-table .bg-purple {
+  border-top:3px solid #A32362;
+}
+.compare-table .bg-blue {
+  border-top:3px solid #0097CF;
+}
+.compare-table .sep {
+  background:#F5F5F5;
+  font-weight:bold;
+}
+.compare-table .txt-l { font-size:20px; font-weight:bold; }
+.compare-table .txt-black { color: #000; }
+.compare-table .txt-top { position:relative; top:-9px; left:-2px; }
+.compare-table .tick { font-size:18px; color:#2CA01C; }
+.compare-table .hide {
+  border:0;
+  background:none;
+}
+
+@media (min-width: 640px) {
+.compare-table   ul {
+    display:none;
+  }
+.compare-table   td,th {
+    display:table-cell !important;
+  }
+ .compare-table  td,th {
+    width: 330px;
+  
+  }
+ .compare-table  td+td, th+th {
+    width: auto;
+  }
+}
+
+.compare-table .highlight{
+	background-color: rgba(109,207,246,0.5);
+}
+
+.compare-area {
+	height: 400px;
+}

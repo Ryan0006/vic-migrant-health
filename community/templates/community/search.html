@@ -1,0 +1,51 @@
+{% extends 'community/base.html' %}
+{% block title %}Lookup Suburb{% endblock %}
+{% block body %}
+
+{% load staticfiles %}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home" data-parallax="scroll" data-image-src="{% static 'community/images/search-bg.jpg' %}">
+    <div class="overlay-bg overlay">
+    </div>
+    <div class="container">
+        <div class="row fullscreen  d-flex align-items-center justify-content-end">
+            <div class="banner-content col-lg-12 col-md-12 justify-content-center">
+                <div class="row justify-content-center">
+                <h1>
+                    Already have<span> Places </span>in Mind?							
+                </h1>
+                </div>
+                <div class="row pt-20 pb-50 justify-content-center">
+                    <div class="container">
+                        <form name="suburbform" role="search" method="get" action="{% url 'community:detail' %}" onsubmit="return validateForm()">
+                            <div class="row" style="margin-left:50px;">
+                                <div class="col col-md-9">
+
+                                <div class="input-group input-group-lg">
+                                    <input id="top-search" type="text" class="form-control form-control-lg" name="name" placeholder="Suburb name/postcode" required="true">
+
+
+                                 </div>
+                                </div>
+                                <div class="col col-md-3">
+                                    <button class="primary-btn2 header-btn btn-lg text-uppercase" type="submit" id="search-suburb-btn">Search</button>
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center pt-20">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</section>
+
+<!-- End banner Area -->
+
+{% endblock %}

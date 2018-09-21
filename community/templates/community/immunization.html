@@ -1,0 +1,175 @@
+{% extends 'community/base.html' %}
+
+{% block body %}
+{% load staticfiles %}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-size:18px;padding:20px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;color: black;}
+.tg th{font-size:18px;font-weight:normal;padding:20px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;background-color: antiquewhite;color: black;}
+.tg .tg-0pky{border-color:black;text-align:center;vertical-align:center}
+.tg .tg-0lax{text-align:center;vertical-align:center}
+</style>
+
+<section class="compare-area relative" data-parallax="scroll" data-image-src="{% static 'community/images/immunization-bg.jpg' %}">
+    <div class="overlay-bg overlay">
+    </div>
+    <div class="container">
+        <div class="row pt-150 pb-150 d-flex align-items-center justify-content-end">
+            <div class="banner-content col-lg-12 col-md-12 align-items-center">
+                <div class="row justify-content-center">
+                <h1>
+                    <span>Immunization</span>
+                </h1>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</section>
+<div class="wrapper">
+    <nav class="tabs">
+        <div class="selector"></div>
+        <a class="active tablinks" onclick="openTab(event, 'immu1')">Infants and Children</a>
+        <a class="tablinks" onclick="openTab(event, 'immu2')">Adolescents</a>
+        <a class="tablinks" onclick="openTab(event, 'immu3')">Adults</a>
+      </nav>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center pb-50 tabcontent" id="immu1" style="display: flex">
+        <table class="tg">
+      <tr>
+        <th class="tg-0pky">Age</th>
+        <th class="tg-0pky">Disease</th>
+      </tr>
+      <tr>
+        <td class="tg-0pky">Birth</td>
+        <td class="tg-0pky">Hepatitis B</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">2 months<br>(from 6 weeks)<br>and<br>4 months</td>
+        <td class="tg-0pky">Diphtheria-tetanus-pertussis,<br>poliomyelitis-hepatitis B-Haemophilus-influenzae type b</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">2 months<br>(from 6 weeks)<br>and<br>4 months</td>
+        <td class="tg-0pky">Pneumococcal</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">2 months<br>(from 6 weeks)<br>and<br>4 months</td>
+        <td class="tg-0pky">Rotavirus</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">6 months</td>
+        <td class="tg-0pky">Diphtheria-tetanus-pertussis-poliomyelitis-hepatitis B-Haemophilus-influenzae type b</td>
+      </tr>
+      <tr>
+          <td class="tg-0pky">6 months to &lt;5 years -<br>all infants and children</td>
+        <td class="tg-0pky">Influenza</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">6 months of age<br>premature baby &lt;<br>28 weeks gestation or with medical risk factor</td>
+        <td class="tg-0pky">Pneumococcal</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">12 months</td>
+        <td class="tg-0pky">Measles-mumps-rubella</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">12 months</td>
+        <td class="tg-0lax">Meningococcal<br>ACWY</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">12 months</td>
+        <td class="tg-0lax">Pneumococcal</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">18 months</td>
+        <td class="tg-0lax">Measles-mumps-rubella-varicella,(chickenpox)</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">18 months</td>
+        <td class="tg-0lax">Diphtheria-tetanus-pertussis</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">18 months</td>
+        <td class="tg-0lax">Haemophilus influenzae type b</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">4 years</td>
+        <td class="tg-0lax">Diphtheria-tetanus-pertussis-poliomyelitis</td>
+      </tr>
+    </table>
+    </div>
+    <div class="row justify-content-center pb-50 tabcontent" id="immu2">
+         <table class="tg">
+          <tr>
+            <th class="tg-s268">Age</th>
+            <th class="tg-s268">Disease</th>
+          </tr>
+          <tr>
+            <td class="tg-s268">Year 7 Secondary school<br>(or age equivalent, 12-13 years of age)</td>
+            <td class="tg-s268">Human<br>papillomavirus<br>(HPV)</td>
+          </tr>
+          <tr>
+            <td class="tg-s268">Year 7 Secondary school (or age equivalent, 12-13 years of age)</td>
+            <td class="tg-s268">Diphtheria-tetanus-pertussis</td>
+          </tr>
+          <tr>
+            <td class="tg-s268">Year 10 Secondary School<br>(or age equivalent)</td>
+            <td class="tg-s268">Meningococcal<br>ACWY</td>
+          </tr>
+        </table>      
+    </div>
+    <div class="row justify-content-center pb-50 tabcontent" id="immu3">
+        <table class="tg">
+          <tr>
+            <th class="tg-s268">Age</th>
+            <th class="tg-0lax">Disease</th>
+          </tr>
+          <tr>
+            <td class="tg-s268">Pregnant women</td>
+            <td class="tg-0lax">Influenza</td>
+          </tr>
+        <tr>
+            <td class="tg-s268">Pregnant women</td>
+            <td class="tg-0lax">Diphtheria-tetanus-pertussis</td>
+          </tr>
+          <tr>
+            <td class="tg-s268">From 65 years</td>
+            <td class="tg-0lax">Influenza</td>
+          </tr>
+          <tr>
+            <td class="tg-s268">From 65 years</td>
+            <td class="tg-0lax">Pneumococcal</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">70 years or from 71 to 79 years (until the end of 2021)</td>
+            <td class="tg-0lax">Shingles<br>(Herpes Zoster)</td>
+          </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "flex";
+    evt.currentTarget.className += " active";
+}
+</script>
+{% endblock %}

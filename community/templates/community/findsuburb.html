@@ -1,0 +1,313 @@
+{% extends 'community/base.html' %}
+
+{% block body %}
+
+{% block content %}
+
+{% load staticfiles %}
+{% load custom_filter %}
+
+<!--Language-Input-Form-->
+<section class="banner-area relative" id="home-find" data-parallax="scroll"
+         data-image-src="{% static 'community/images/find-bg.jpg' %}">
+    <div class="overlay-bg overlay">
+    </div>
+    <div class="container">
+        <div class="row fullscreen  d-flex align-items-center justify-content-end">
+            <div class="banner-content col-lg-12 col-md-12" style="margin-top:-100px;">
+                <div class="row justify-content-center">
+                    <h1 style="text-align: center">We can <span>help you</span> find the best place
+                        <span>In Victoria</span></h1>
+                </div>
+                <div class="row pt-20" style="background-color: rgba(179, 179, 179, 0.5)">
+                    <div class="container">
+                        <form method="POST" action="{% url 'community:findsuburb' %}#result">{% csrf_token %}
+                            <div class="row">
+                                <div class="col col-sm-12 col-md-5">
+                                    <select name="country" class="input-group"></select>
+                                </div>
+                                <div class="col col-sm-12 col-md-5 input-group input-group-lg">
+                                    <select name="language" class="form-control" required="true"></select>
+                                </div>
+                                <div class="col col-sm-12 col-md-2">
+                                    <button class="btn btn-default header-btn btn-lg w-100" type="submit"><i
+                                            class="fa fa-xl fa-search" style="color: black"></i> Search</button>
+                                </div>
+                                {% if country %}
+                                <div id="selected-country" data-country="{{ country }}" style="display:none"></div>
+                                {% endif %}
+                                {% if language %}
+                                <div id="selected-language" data-language="{{ language }}" style="display:none"></div>
+                                {% endif %}
+                            </div>
+                            <div class="row pt-10 pb-20 align-items-center justify-content-center" style="margin-top:8px;">
+                                <div class="col col-md-1 align-items-center">
+                                    <h3 style="font-weight: 400; font-size: 24px; color: #FFF;">Filters:</h3>
+                                </div>
+                                <div class="col col-md-11">
+                                    <div class="row">
+                                    <div class="col col-md-4">
+                                        <div class="dropdown w-100">
+                                          <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownHealthNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Health Service
+                                          </button>
+                                          <div class="dropdown-menu w-100" aria-labelledby="dropdownHealthNeeds">
+                                              <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                <input id="mentalCheck" type="checkbox" name="filters" value="mental_health" {% if 'mental_health' in filters %}checked{% endif %}/> 
+                                                <label class="form-check-label" for="mentalCheck">
+                                                    Mental Health Service
+                                                </label>
+                                                </div>
+                                              </div>
+                                              <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="dentalCheck" type="checkbox" name="filters" value="dental" {% if 'dental' in filters %}checked{% endif %}/>
+                                                <label class="form-check-label" for="dentalCheck">
+                                                    Dental Service
+                                                </label>
+                                                </div>
+                                              </div>
+                                                <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="general_practiceCheck" type="checkbox" name="filters" value="general_practice" {% if 'general_practice' in filters %}checked{% endif %}/>
+                                                <label class="form-check-label" for="general_practiceCheck">
+                                                    General Practice
+                                                </label>
+                                                </div>
+                                              </div>
+                                                <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="pharmacyCheck" type="checkbox" name="filters" value="pharmacy" {% if 'pharmacy' in filters %}checked{% endif %}/>
+                                                <label class="form-check-label" for="pharmacyCheck">
+                                                    Pharmacy
+                                                </label>
+                                                </div>
+                                              </div>
+                                                <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="allied_healthCheck" type="checkbox" name="filters" value="allied_health" {% if 'allied_health' in filters %}checked{% endif %}/>
+                                                <label class="form-check-label" for="allied_healthCheck">
+                                                    Allied Health Service
+                                                </label>
+                                                </div>
+                                              </div>
+                                                <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="complementary_healthCheck" type="checkbox" name="filters" value="complementary_health" {% if 'complementary_health' in filters %}checked{% endif %}/>
+                                                <label class="form-check-label" for="complementary_healthCheck">
+                                                    Complementary Health Service
+                                                </label>
+                                                </div>
+                                              </div>                                          
+                                          </div>
+                                    </div>
+                                </div>
+
+
+                            <div class="col col-md-4">
+                                <div class="dropdown w-100">
+                                  <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownEducationNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Education Service
+                                  </button>
+                                  <div class="dropdown-menu w-100" aria-labelledby="dropdownEducationNeeds">
+                                      <div class="dropdown-item">
+                                        <div class="custom-checkbox">
+                                         <input id="kindergartenCheck" type="checkbox" name="filters" value="kindergarten" {% if 'kindergarten' in filters %}checked{% endif %}/>
+                                        <label class="form-check-label" for="kindergartenCheck">
+                                            kindergarten
+                                        </label>
+                                        </div>
+                                      </div>
+                                      <div class="dropdown-item">
+                                        <div class="custom-checkbox">
+                                         <input id="primary_schoolCheck" type="checkbox" name="filters" value="primary_school" {% if 'primary_school' in filters %}checked{% endif %}/>
+                                        <label class="form-check-label" for="primary_schoolCheck">
+                                            Primary School
+                                        </label>
+                                        </div>
+                                      </div>
+                                        <div class="dropdown-item">
+                                        <div class="custom-checkbox">
+                                         <input id="secondary_schoolCheck" type="checkbox" name="filters" value="secondary_school" {% if 'secondary_school' in filters %}checked{% endif %}/>
+                                        <label class="form-check-label" for="secondary_schoolCheck">
+                                            Secondary School
+                                        </label>
+                                        </div>
+                                      </div>
+                                        <div class="dropdown-item">
+                                        <div class="custom-checkbox">
+                                         <input id="p12_schoolCheck" type="checkbox" name="filters" value="p12_school" {% if 'p12_school' in filters %}checked{% endif %}/>
+                                        <label class="form-check-label" for="p12_schoolCheck">
+                                            P-12 School
+                                        </label>
+                                        </div>
+                                      </div>                                         
+                                  </div>
+                            </div>
+                            </div>
+                                
+                            <div class="col col-md-4">
+                                    <div class="dropdown w-100">
+                                      <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownOtherNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Other Service
+                                      </button>
+                                      <div class="dropdown-menu w-100" aria-labelledby="dropdownOtherNeeds">
+                                            <div class="dropdown-item">
+                                            <div class="custom-checkbox">
+                                             <input id="disabilityCheck" type="checkbox" name="filters" value="disability" {% if 'disability' in filters %}checked{% endif %}/>
+                                            <label class="form-check-label" for="disabilityCheck">
+                                                Disability Service
+                                            </label>
+                                            </div>
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <div class="custom-checkbox">
+                                             <input id="residential_aged_careCheck" type="checkbox" name="filters" value="residential_aged_care" {% if 'residential_aged_care' in filters %}checked{% endif %}/>
+                                            <label class="form-check-label" for="residential_aged_careCheck">
+                                                Residential Aged Care Service
+                                            </label>
+                                            </div>
+                                          </div>                                         
+                                      </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>                            
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+F</section>
+
+{% endblock %}
+
+{% if post %}
+{% if result_list %}
+
+<!--Result-Button-Group-->
+
+<section id="result">
+    <div class="card text-center pt-50 pb-40">
+
+        <a id="return-button" class="btn btn-light pt-20 pb-20 return-top" href="#" role="button" style="font-size:13pt;color:darkblue;">Return to Search</a >
+        <div class="card-body ">
+            <h3 class="pt-30">These suburbs have most {{ language }} speaking people:</h3>
+
+            {% if filters %}
+            <h5 class="pb-20">Filters applied: 
+                {% if 'mental_health' in filters %}<span class="badge badge-secondary">Mental Health</span>{% endif %}
+                {% if 'dental' in filters %}<span class="badge badge-secondary">Dental</span>{% endif %}
+                {% if 'general_practice' in filters %}<span class="badge badge-secondary">General Practice</span>{% endif %}
+                {% if 'pharmacy' in filters %}<span class="badge badge-secondary">Pharmacy</span>{% endif %}
+                {% if 'allied_health' in filters %}<span class="badge badge-secondary">Allied Health</span>{% endif %}
+                {% if 'complementary_health' in filters %}<span class="badge badge-secondary">Complementary Health</span>{% endif %}
+                {% if 'kindergarten' in filters %}<span class="badge badge-secondary">Kindergarten</span>{% endif %}
+                {% if 'primary_school' in filters %}<span class="badge badge-secondary">Primary School</span>{% endif %}
+                {% if 'secondary_school' in filters %}<span class="badge badge-secondary">Secondary School</span>{% endif %}
+                {% if 'p12_school' in filters %}<span class="badge badge-secondary">P12 School</span>{% endif %}
+                {% if 'disability' in filters %}<span class="badge badge-secondary">Disability</span>{% endif %}
+                {% if 'residential_aged_care' in filters %}<span class="badge badge-secondary">Residental Aged Care</span>{% endif %}
+            </h5>
+            {% endif %}
+            
+            <form method="GET" action="{% url 'community:compare' %}">
+                <input type="hidden" name="country_select" value="{{ country }}"/>
+                <input type="hidden" name="language_select" value="{{ language }}"/>
+
+                {% if filters %}
+                    {% for filter in filters %}
+                        <input type="hidden" name="filters_select" value="{{ filter }}"/>
+                    {% endfor %}
+                {% endif %}
+            <div class="container" id="suburb-area">
+                <div class="row pt-50">
+                    <div id="compare-div" class="col col-md-12">
+                        <button class="btn primary-btn2 header-btn1" id="compare-btn" type="button">Enable Compare</button>
+                    </div>
+                    <div id="gocompare-div" class="col col-md-12">
+                        <button id="goCompare-btn" class="btn primary-btn2 header-btn1" type="submit" style="display:none" disabled="disabled">Go Compare</button>
+                    </div>
+                </div>
+                <div class="row pt-50">
+                    {% for suburblocation in result_list %}
+
+                    {% if forloop.counter > 12 %}
+                    <div class="col pt-10 pb-10 collapse collapse-suburb">
+                        <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, 0)">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
+                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
+                    </div>
+                    {% else %}
+                    <div class="col pt-10 pb-10">
+                        <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, {{ forloop.counter|calculateop }})">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
+                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
+                    </div>
+                    {% endif %}
+
+                    {% if forloop.counter|divisibleby:"4" %}
+                    <div class="w-100"></div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="row pt-50 justify-content-center">
+                    <div class="col-md-12">
+                        <a id="collapse-button" class="btn primary-btn2 header-btn1" data-toggle="collapse"
+                           href=".collapse-suburb" role="button">Show More</a>
+                    </div>
+                </div>
+
+            </div>
+
+                </form>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="compareHintModal" tabindex="-1" role="dialog" aria-labelledby="compareHintModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="compareHintModalTitle">Hint</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please tick 2-4 checkboxes, then click "Go Compare".
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<!--Error-Message-->
+<section id="result" class="skill-area section-gap fullscreen align-items-center">
+    <div class="container">
+        <div class="row d-flex justify-content-center pt-50 pb-50">
+            <i class="fas fa-frown fa-10x"></i>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <h1 style="color: white">Sorry, seems like nothing matches your requirement.</h1>
+        </div>
+        <div class="row d-flex pt-50 justify-content-center">
+            <a id="return-button" class="primary-btn2 header-btn text-uppercase return-top" href="#" role="button">Return
+                to Search</a >
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endif %}
+<script>
+$('a.return-top').click(function(e) {
+    e.preventDefault();
+});
+</script>
+{% endblock %}

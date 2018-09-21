@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--Title-->
+    <title>{% block title %}Victorian Migrant Health{% endblock %}</title>
+    
+    {% load staticfiles %}
+<!--    <link rel="stylesheet" href="{% static 'community/css/bootstrap.css' %}">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel='stylesheet' type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+    <link rel="stylesheet" href="{% static 'community/css/jquery.DonutWidget.min.css' %}">
+    <link rel="stylesheet" href="{% static 'community/css/flags.css' %}">
+    <link rel="stylesheet" href="{% static 'community/css/awesomplete.css' %}">
+    <link rel="stylesheet" href="{% static 'community/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'community/css/dashboard.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'community/css/compare.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'community/css/style.css' %}" />
+
+</head>
+<body>
+<!--Navigation-->
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg  navbar-light navbar-fixed-top">
+            <div class="container">
+                  <a class="navbar-brand" href="{% url 'community:index' %}">
+                    <span>Victorian Migrant Health</span>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li><a href="{% url 'community:index' %}">Home</a></li>
+                        <li><a href="{% url 'community:immunization' %}">Immunization</a ></li>
+                        <li><a href="{% url 'community:search' %}">Search Suburb</a></li>
+                        <li><a href="{% url 'community:aboutus' %}">About Us</a></li>
+
+                    </ul>
+                  </div>						
+            </div>
+        </nav>
+    </header>   
+
+{% block body %}
+{% endblock %}
+    
+    <!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Links</h6>
+								<ul class="footer-nav">
+									<li><a href="{% url 'community:index' %}">Home</a></li>
+                                    <li><a href="http://tiny.cc/RAWS-NewVictorianHealth">Immunization</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Find Suburbs</h6>
+								<ul class="footer-nav">
+									<li><a href="{% url 'community:search' %}">Look up suburb</a></li>
+									<li><a href="{% url 'community:findsuburb' %}">Recommendation</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3  col-md-12">
+							<div class="single-footer-widget">
+								<h6>Team RAWS</h6>
+								<ul class="footer-nav">
+									<li><a href="{% url 'community:aboutus' %}">About us</a></li>
+                                    <li><a href="{% url 'community:aboutus' %}">Disclaimer</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="row footer-bottom d-flex justify-content-between">
+                        <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Team RAWS</p>
+                        <div id="google_translate_element" class="col-lg-4 col-sm-12"></div>
+                        <script type="text/javascript">
+                                function googleTranslateElementInit() {
+                                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                                }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  
+                        
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+    
+<!--JavaScripts-->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="{% static 'community/js/easypiechart.js' %}"></script>
+    <script src="{% static 'community/js/easypiechart-data.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="{% static 'community/js/parallax.min.js' %}"></script>
+    <script src="{% static 'community/js/jquery.DonutWidget.min.js' %}"></script>
+    <script src="{% static 'community/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'community/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'community/js/awesomplete.min.js' %}"></script>
+    <script src="{% static 'community/js/autocomplete.js' %}"></script>
+    <script src="{% static 'community/js/compare.js' %}"></script>
+    <script src="{% static 'community/js/mapping.js' %}"></script>
+    <script src="{% static 'community/js/main.js' %}"></script>
+</body>
+</html>
