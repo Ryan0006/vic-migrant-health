@@ -185,10 +185,6 @@
         <td class="stat"><span class="txt-l">{{ community.0.complementary_health }}</span></td>
     {% endfor %}
     </tr>
-<!--Other Services-->
-    <tr>
-      <td colspan="13" class="sep">Other Services (counts)</td>
-    </tr>      
      <tr {% if 'disability' in filters %}class="highlight"{% endif %}>
       <td class="txt-black">Disability Services</td>
     {% for community in result_list %}
