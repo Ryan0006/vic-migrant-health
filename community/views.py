@@ -5,7 +5,6 @@ from .utils import Sendmail
 from common import settings
 import csv, requests, json
 
-
 def index(request):
     return render(request, "community/index.html", {})
 

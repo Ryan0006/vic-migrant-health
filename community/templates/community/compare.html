@@ -47,7 +47,10 @@
     <tr>
       <th class="hide"></th>
     {% for community in result_list %}
-        <th class="bg-blue pt-20 pb-20 stat"><span class="txt-l">{{ community.0.name }}</span></th>
+        <th class="bg-blue pt-20 pb-20 stat">
+            <span class="txt-l">{{ community.0.name }}</span>
+            <a class="btn primary-btn2 header-btn1" href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a>
+        </th>
     {% endfor %}
     </tr>
   </thead>
@@ -108,6 +111,9 @@
         <td class="stat"><span class="txt-l">{{ community.0.culture_group4_name }}</span><br><span class="badge badge-secondary">{{ community.0.culture_group4_per }}%</span></td>
     {% endfor %} 
     </tr>
+    <tr>
+        <td colspan="13"><canvas id="basics" width="300" height="150"></canvas></td>
+    </tr>
 <!--Education Services-->
     <tr>
       <td colspan="13" class="sep">Education Services (counts)</td>
@@ -135,6 +141,9 @@
     {% for community in result_list %}
         <td class="stat"><span class="txt-l">{{ community.0.p12_school }}</span></td>
     {% endfor %}
+    </tr>
+    <tr>
+        <td colspan="13"><canvas id="school" width="300" height="150"></canvas></td>
     </tr>
 <!--Health Services-->
     <tr>
@@ -191,14 +200,9 @@
     {% for community in result_list %}
         <td class="stat"><span class="txt-l">{{ community.0.residential_aged_care }}</span></td>
     {% endfor %}
-    </tr> 
+    </tr>
     <tr>
-    <td class="hide"></td>
-    {% for community in result_list %}
-    <td class="stat"><a class="btn primary-btn2 header-btn1"
-           href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a></td>
-
-    {% endfor %}
+        <td colspan="13"><canvas id="health" width="300" height="150"></canvas></td>
     </tr>
 
   </tbody>
@@ -211,11 +215,6 @@
         <label for="email">Send a copy of this report to email: </label>
         <input type="text" id="email" name="email" size="40"/>
         {% for community in result_list %}
-        <!--{% with overseas=community.0.born_overseas|stringformat:"f" %}-->
-        <!--{% with noneng=community.0.except_eng|stringformat:"f" %}-->
-        <!--{% with first_name=community.0.culture_group1_name %}-->
-        <!--{% with first=community.0.culture_group1_per|stringformat:"f" %}-->
-        <!--{% with item_json='{"name":"'|add:community.0.name|add:'","postcode":'|add:community.3|add:',"homeland":'|add:community.2.1|add:',"overseas":'|add:overseas|add:',"noneng":'|add:noneng|add:',"1st":'|add:first|add:',"2nd":'|add:community.2.1|add:',"3rd":'|add:community.2.1|add:',"4th":'|add:community.2.1|add:',"kindergarten":'|add:community.2.1|add:',"primary":'|add:community.2.1|add:',"secondary":'|add:community.2.1|add:',"p12":'|add:community.2.1|add:',"mental":'|add:community.2.1|add:',"dental":'|add:community.2.1|add:',"gp":'|add:community.2.1|add:',"pharmacy":'|add:community.2.1|add:',"allied":'|add:community.2.1|add:',"complementary":'|add:community.2.1|add:',"disability":'|add:community.2.1|add:',"residential":'|add:community.2.1|add:'}' %}-->
             <input type="hidden" name="name" value="{{ community.0.name }}">
             <input type="hidden" name="postcode" value={{ community.3 }}>
             <input type="hidden" name="mylng" value={{ community.2.0 }}>
@@ -242,12 +241,6 @@
             <input type="hidden" name="complementary" value={{ community.0.complementary_health }}>
             <input type="hidden" name="disability" value={{ community.0.disability }}>
             <input type="hidden" name="residential" value={{ community.0.residential_aged_care }}>
-
-        <!--{% endwith %}-->
-        <!--{% endwith %}-->
-        <!--{% endwith %}-->
-        <!--{% endwith %}-->
-        <!--{% endwith %}-->
         {% endfor %}
         <button type="submit">send</button>
     </form>
@@ -265,4 +258,136 @@
         </div>
 </section>
 {% endif %}
+
+
+<script>
+var backgroundColor = [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+];
+var borderColor = [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+];
+var options = {
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Percentage',
+                    fontSize: 20
+                },
+                ticks: {
+                    beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    beginAtZero:true,
+                    fontSize: 14,
+                }
+            }]
+        }
+    };
+
+var datasets_basics = [];
+var mylng;
+var i = 0;
+{% for community in result_list %}
+    var dataset_basics = {
+        label: '{{ community.0.name }}' + ' {{ community.3 }}',
+        data: [
+            {{ community.2.1 }}, {{ community.0.born_overseas }}, {{ community.0.except_eng }},
+            {{ community.0.culture_group1_per }}, {{ community.0.culture_group2_per }},
+            {{ community.0.culture_group3_per }}, {{ community.0.culture_group4_per }},
+        ],
+        backgroundColor: backgroundColor[i],
+        borderColor: borderColor[i],
+        borderWidth: 1
+    };
+    datasets_basics.push(dataset_basics);
+    mylng = '{{ community.2.0 }}';
+    i = i + 1;
+{% endfor %}
+var ctx_basics = document.getElementById("basics").getContext('2d');
+var basics = new Chart(ctx_basics, {
+    type: 'bar',
+    data: {
+        labels: [
+            mylng + ' speaker', 'Born overseas', 'Non-English speaker', '1st cultural group',
+            '2nd cultural group', '3rd cultural group', '4th cultural group',
+        ],
+        datasets: datasets_basics,
+    },
+    options: options
+});
+
+
+options.scales.yAxes[0].scaleLabel.labelString = 'Counts';
+var datasets_school = [];
+var i = 0;
+{% for community in result_list %}
+    var dataset_school = {
+        label: '{{ community.0.name }}' + ' {{ community.3 }}',
+        data: [
+            {{ community.0.kindergarten }}, {{ community.0.primary_school }}, {{ community.0.secondary_school }},
+            {{ community.0.p12_school }},
+        ],
+        backgroundColor: backgroundColor[i],
+        borderColor: borderColor[i],
+        borderWidth: 1
+    };
+    datasets_school.push(dataset_school);
+    i = i + 1;
+{% endfor %}
+var ctx_school = document.getElementById("school").getContext('2d');
+var school = new Chart(ctx_school, {
+    type: 'bar',
+    data: {
+        labels: [
+            'Kindergarten', 'Primary School', 'Secondary School', 'P-12 School',
+        ],
+        datasets: datasets_school,
+    },
+    options: options
+});
+
+
+
+var datasets_health = [];
+var i = 0;
+{% for community in result_list %}
+    var dataset_health = {
+        label: '{{ community.0.name }}' + ' {{ community.3 }}',
+        data: [
+            {{ community.0.mental_health }}, {{ community.0.dental }}, {{ community.0.general_practice }},
+            {{ community.0.pharmacy }}, {{ community.0.allied_health }}, {{ community.0.complementary_health }},
+            {{ community.0.disability }}, {{ community.0.residential_aged_care }},
+        ],
+        backgroundColor: backgroundColor[i],
+        borderColor: borderColor[i],
+        borderWidth: 1
+    };
+    datasets_health.push(dataset_health);
+    i = i + 1;
+{% endfor %}
+var ctx_health = document.getElementById("health").getContext('2d');
+var health = new Chart(ctx_health, {
+    type: 'bar',
+    data: {
+        labels: [
+            'Mental health', 'Dental site', 'General practice', 'Pharmacy', 'Allied health',
+            'Complementary', 'Disability', 'Residential',
+        ],
+        datasets: datasets_health,
+    },
+    options: options
+});
+</script>
+
+
 {% endblock %}
