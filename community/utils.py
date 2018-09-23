@@ -155,7 +155,6 @@ class Sendmail():
             message = message + """<td>""" + str(suburb_complementary) + """</td>"""
         message = message + """
                                     </tr>
-                                    <tr><td><strong>Other Services (counts)</strong></td></tr>
                                     <tr>
                                         <td>Disability health service</td>
                                     """
