@@ -202,7 +202,7 @@ def map(request):
     base = "/home/ryanchen0008/vic-migrant-health/"
     relative = "community/static/community/js/vic.json"
     path = relative
-    # path = base + relative
+    path = base + relative
     boundary_json = json.load(open(path))
     QUERY_NEARBY = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
     name = request.GET.get('name')
