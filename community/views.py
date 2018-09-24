@@ -214,8 +214,8 @@ def map(request):
             break
     community = Community.objects.filter(name__iexact=name).first()
     location = Suburblocation.objects.get(community=community, postcode=postcode)
-    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
-    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1100&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1100&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
     r_med = requests.get(medical_query)
     r_den = requests.get(dentist_query)
     medicals = []
@@ -223,11 +223,27 @@ def map(request):
     if r_med.status_code == 200:
         med_array = r_med.json()['results']
         for med in med_array:
-            medicals.append(med['place_id'])
+            medicals.append(med)
+        # while 'next_page_token' in r_med.json():
+        #     next_query = medical_query + '&pagetoken=' + r_med.json()['next_page_token']
+        #     rn_med = requests.get(next_query)
+        #     if rn_med.status_code == 200:
+        #         med_array_next = r_med.json()['results']
+        #         for med in med_array_next:
+        #             medicals.append(med)
+        medicals = json.dumps(medicals)
     if r_den.status_code == 200:
         den_array = r_den.json()['results']
         for den in den_array:
-            dentists.append(den['place_id'])
+            dentists.append(den)
+        # while 'next_page_token' in r_den.json():
+        #     next_query = dentist_query + '&pagetoken=' + r_den.json()['next_page_token']
+        #     rn_den = requests.get(next_query)
+        #     if rn_den.status_code == 200:
+        #         den_array_next = r_den.json()['results']
+        #         for den in den_array_next:
+        #             dentists.append(den)
+        dentists = json.dumps(dentists)
     hospitals = []
     primaries = []
     secondaries = []

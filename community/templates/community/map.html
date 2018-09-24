@@ -8,78 +8,180 @@
 
 {% if location %}
 
+<div class="row fullscreen">
+    <div class="col col-lg-3 w-100" >
 
-
-
-    <div class="row fullscreen">
-        <div class="col col-lg-3 w-100" >
-
-                <div class="row map-banner align-items-center justify-content-center" style="background-color: #ffa296">
-                    <h3>Health Facilities</h3>
+            <div class="row map-banner align-items-center justify-content-center" style="background-color: #ffa296">
+                <h3>Health Facilities</h3>
+            </div>
+            <div class="row map-item" style="margin-left: 50px;">
+                <div class="container">
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="hospital" onchange="hospital_marker();"/><label class="form-check-label map-filter-label" for="hospital">Hospital</label></div>
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="medical" onchange="health_marker('medical');"/><label class="form-check-label map-filter-label" for="medical">Medical Site</label></div>
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="dentist" onchange="health_marker('dentist');"/><label class="form-check-label map-filter-label" for="dentist">Dentist</label></div>
                 </div>
-                <div class="row map-item" style="margin-left: 50px;">
-                    <div class="container">
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="hospital" onchange="hospital_marker();"/><label class="form-check-label map-filter-label" for="hospital">Hospital</label></div>
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="medical" onchange="health_marker('medical');"/><label class="form-check-label map-filter-label" for="medical">Medical Site</label></div>
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="health-check" id="dentist" onchange="health_marker('dentist');"/><label class="form-check-label map-filter-label" for="dentist">Dentist</label></div>
-                    </div>
+            </div>
+            <div class="row map-banner align-items-center justify-content-center" style="background-color: #afc1ff">
+                    <h3>Schools</h3>
+            </div>
+            <div class="row map-item" style="margin-left: 50px;">
+                <div class="container">
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="primary" onchange="school_marker('primary');"/><label class="form-check-label map-filter-label" for="primary">Primary School</label></div>
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="secondary" onchange="school_marker('secondary');"/><label class="form-check-label map-filter-label" for="secondary">Secondary School</label></div>
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="pri_sec" onchange="school_marker('pri_sec');"/><label class="form-check-label map-filter-label" for="pri_sec">Pri/Sec School</label></div>
+                    <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="special" onchange="school_marker('special');"/><label class="form-check-label map-filter-label" for="special">Special School</label></div>
                 </div>
-                <div class="row map-banner align-items-center justify-content-center" style="background-color: #afc1ff">
-                        <h3>Schools</h3>
-                </div>
-                <div class="row map-item" style="margin-left: 50px;">
-                    <div class="container">
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="primary" onchange="school_marker('primary');"/><label class="form-check-label map-filter-label" for="primary">Primary School</label></div>
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="secondary" onchange="school_marker('secondary');"/><label class="form-check-label map-filter-label" for="secondary">Secondary School</label></div>
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="pri_sec" onchange="school_marker('pri_sec');"/><label class="form-check-label map-filter-label" for="pri_sec">Pri/Sec School</label></div>
-                        <div class="row align-items-center pt-10"><input type="checkbox" class="school-check" id="special" onchange="school_marker('special');"/><label class="form-check-label map-filter-label" for="special">Special School</label></div>
-                    </div>
-                </div>
+            </div>
 
-                <div class="row map-item">
-                    <a class="btn primary-btn2 my-2 my-sm-0" style="background-color: transparent; color: #000;" onclick="goBack()"><i class="fa fa-arrow-left" style="color: #000;"></i>  Back</a >
-                    <script>
-                    function goBack() {
-                        window.history.back()
+            <div class="row map-item">
+                <a class="btn primary-btn2 my-2 my-sm-0" style="background-color: transparent; color: #000;" onclick="goBack()"><i class="fa fa-arrow-left" style="color: #000;"></i>  Back</a >
+                <script>
+                function goBack() {
+                    window.history.back()
+                }
+                </script>
+            </div>
+    </div>
+
+    <div id="map" class="col col-lg-9">
+        <script>
+            var boundary = {{ boundary|safe }};
+            var map;
+            var iconBase = '{% static 'community/images' %}/';
+            var markergroup = {
+                'hospital': {'place':{{ hospitals|safe }}, 'marker':[]},
+                'medical': {'place':{{ medicals|safe }}, 'marker':[]},
+                'dentist': {'place':{{ dentists|safe }}, 'marker':[]},
+                'primary': {'place':{{ primary|safe }}, 'marker':[]},
+                'secondary': {'place':{{ secondary|safe }}, 'marker':[]},
+                'pri_sec': {'place':{{ pri_sec|safe }}, 'marker':[]},
+                'special': {'place':{{ special|safe }}, 'marker':[]}
+            };
+            var activeInfoWindow;
+            function health_marker(param){
+                if (document.getElementById(param).checked) {
+                    for (let i in markergroup[param].marker) {
+                        markergroup[param].marker[i].setVisible(true);
                     }
-                    </script>
-                </div>
-        </div>       
-        
-        <div id="map" class="col col-lg-9">
-            <script>
-                var boundary = {{ boundary|safe }};
-                var map;
-                var iconBase = '{% static 'community/images' %}/';
-                var markergroup = {
-                    'hospital': {'place':{{ hospitals|safe }}, 'marker':[]},
-                    'medical': {'place_id':{{ medicals|safe }}, 'marker':[]},
-                    'dentist': {'place_id':{{ dentists|safe }}, 'marker':[]},
-                    'primary': {'place':{{ primary|safe }}, 'marker':[]},
-                    'secondary': {'place':{{ secondary|safe }}, 'marker':[]},
-                    'pri_sec': {'place':{{ pri_sec|safe }}, 'marker':[]},
-                    'special': {'place':{{ special|safe }}, 'marker':[]}
-                };
-                var activeInfoWindow;
-                function health_marker(param){
-                    if (document.getElementById(param).checked) {
-                        for (let i in markergroup[param].place_id) {
+                } else {
+                    for (let i in markergroup[param].marker) {
+                        markergroup[param].marker[i].setVisible(false);
+                    }
+                }
+                if (typeof activeInfoWindow != "undefined") {
+                    activeInfoWindow.close(map, this);
+                }
+            }
+
+
+            function hospital_marker(){
+                if (document.getElementById('hospital').checked) {
+                    place = markergroup['hospital'].place;
+                    for (let i in place) {
+                        let infowindow = new google.maps.InfoWindow();
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: {lat: place[i].latitude, lng: place[i].longitude},
+                            animation: google.maps.Animation.DROP
+                        });
+                        marker.setIcon(iconBase + 'hospital.png');
+                        var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
+                        content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
+                        content = content + '<strong>Type:</strong> ' + place[i].type + '<br>';
+                        content = content + '</div>';
+                        infowindow.setContent(content);
+                        google.maps.event.addListener(marker, 'click', function() {
+                            if (typeof activeInfoWindow != "undefined") {
+                                activeInfoWindow.close(map, this);
+                            }
+                            infowindow.open(map, this);
+                            activeInfoWindow = infowindow;
+                        });
+                        markergroup['hospital'].marker.push(marker);
+                    }
+                } else {
+                    for (let i in markergroup['hospital'].marker) {
+                        markergroup['hospital'].marker[i].setVisible(false);
+                    }
+                }
+                if (typeof activeInfoWindow != "undefined") {
+                    activeInfoWindow.close(map, this);
+                }
+            }
+
+
+            function school_marker(param){
+                if (document.getElementById(param).checked) {
+                    place = markergroup[param].place;
+                    for (let i in place) {
+                        let infowindow = new google.maps.InfoWindow();
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: {lat: place[i].latitude, lng: place[i].longitude},
+                            animation: google.maps.Animation.DROP
+                        });
+                        if (param == 'primary') {
+                            marker.setIcon(iconBase + 'primary.png');
+                        } else if (param == 'secondary') {
+                            marker.setIcon(iconBase + 'secondary.png');
+                        } else if (param == 'pri_sec') {
+                            marker.setIcon(iconBase + 'pri_sec.png');
+                        } else if (param == 'special') {
+                            marker.setIcon(iconBase + 'special.png');
+                        }
+                        var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
+                        content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
+                        content = content + '<strong>Type:</strong> ' + place[i].type + ' School' + '<br>';
+                        content = content + '<strong>Contact:</strong> ' + place[i].contact + '<br>';
+                        content = content + '<strong>Education Sector:</strong> ' + place[i].education_sector + '<br>';
+                        content = content + '</div>';
+                        infowindow.setContent(content);
+                        google.maps.event.addListener(marker, 'click', function() {
+                            if (typeof activeInfoWindow != "undefined") {
+                                activeInfoWindow.close(map, this);
+                            }
+                            infowindow.open(map, this);
+                            activeInfoWindow = infowindow;
+                        });
+                        markergroup[param].marker.push(marker);
+                    }
+                } else {
+                    for (let i in markergroup[param].marker) {
+                        markergroup[param].marker[i].setVisible(false);
+                    }
+                }
+                if (typeof activeInfoWindow != "undefined") {
+                    activeInfoWindow.close(map, this);
+                }
+            }
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: {{ location.latitude }}, lng: {{ location.longitude }}},
+                    zoom: 14,
+                });
+
+                function initMarkers(param){
+                    for (let i in markergroup[param].place) {
+                        var place = markergroup[param].place[i];
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location,
+                            animation: google.maps.Animation.DROP,
+                            visible: false,
+                        });
+                        if (param == 'medical') {
+                            marker.setIcon(iconBase + 'medical.png');
+                        } else if (param == 'dentist') {
+                            marker.setIcon(iconBase + 'dentist.png');
+                        }
+                        google.maps.event.addListener(marker, 'click', function() {
                             let infowindow = new google.maps.InfoWindow();
                             let service = new google.maps.places.PlacesService(map);
                             service.getDetails({
-                                placeId: markergroup[param].place_id[i]
+                                placeId: place.place_id
                             }, function(place, status) {
                                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                                    var marker = new google.maps.Marker({
-                                        map: map,
-                                        position: place.geometry.location,
-                                        animation: google.maps.Animation.DROP,
-                                    });
-                                    if (param == 'medical') {
-                                        marker.setIcon(iconBase + 'medical.png');
-                                    } else if (param == 'dentist') {
-                                        marker.setIcon(iconBase + 'dentist.png');
-                                    }
                                     var content = '<div><h4><strong>' + place.name + '</strong></h4><br>';
                                     if ('vicinity' in place) {
                                         content = content + '<strong>Address:</strong> ' + place.vicinity + '<br>';
@@ -100,128 +202,34 @@
                                     }
                                     content = content + '</div>';
                                     infowindow.setContent(content);
-
-                                    google.maps.event.addListener(marker, 'click', function() {
-                                        if (typeof activeInfoWindow != "undefined") {
-                                            activeInfoWindow.close(map, this);
-                                        }
-                                        infowindow.open(map, this);
-                                        activeInfoWindow = infowindow;
-                                    });
-                                    markergroup[param].marker.push(marker);
                                 }
                             });
-                        }
-                    } else {
-                        for (let i in markergroup[param].marker) {
-                            markergroup[param].marker[i].setVisible(false);
-                        }
-                    }
-                    if (typeof activeInfoWindow != "undefined") {
-                        activeInfoWindow.close(map, this);
-                    }
-                }
-
-
-                function hospital_marker(){
-                    if (document.getElementById('hospital').checked) {
-                        place = markergroup['hospital'].place;
-                        for (let i in place) {
-                            let infowindow = new google.maps.InfoWindow();
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: {lat: place[i].latitude, lng: place[i].longitude},
-                                animation: google.maps.Animation.DROP
-                            });
-                            marker.setIcon(iconBase + 'hospital.png');
-                            var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
-                            content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
-                            content = content + '<strong>Type:</strong> ' + place[i].type + '<br>';
-                            content = content + '</div>';
-                            infowindow.setContent(content);
-                            google.maps.event.addListener(marker, 'click', function() {
-                                if (typeof activeInfoWindow != "undefined") {
-                                    activeInfoWindow.close(map, this);
-                                }
-                                infowindow.open(map, this);
-                                activeInfoWindow = infowindow;
-                            });
-                            markergroup['hospital'].marker.push(marker);
-                        }
-                    } else {
-                        for (let i in markergroup['hospital'].marker) {
-                            markergroup['hospital'].marker[i].setVisible(false);
-                        }
-                    }
-                    if (typeof activeInfoWindow != "undefined") {
-                        activeInfoWindow.close(map, this);
-                    }
-                }
-
-
-                function school_marker(param){
-                    if (document.getElementById(param).checked) {
-                        place = markergroup[param].place;
-                        for (let i in place) {
-                            let infowindow = new google.maps.InfoWindow();
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: {lat: place[i].latitude, lng: place[i].longitude},
-                                animation: google.maps.Animation.DROP
-                            });
-                            if (param == 'primary') {
-                                marker.setIcon(iconBase + 'primary.png');
-                            } else if (param == 'secondary') {
-                                marker.setIcon(iconBase + 'secondary.png');
-                            } else if (param == 'pri_sec') {
-                                marker.setIcon(iconBase + 'pri_sec.png');
-                            } else if (param == 'special') {
-                                marker.setIcon(iconBase + 'special.png');
+                            if (typeof activeInfoWindow != "undefined") {
+                                activeInfoWindow.close(map, this);
                             }
-                            var content = '<div><h4><strong>' + place[i].name + '</strong></h4><br>';
-                            content = content + '<strong>Address:</strong> ' + place[i].address_line + ', ' + place[i].address_town + ', ' + place[i].postcode + '<br>';
-                            content = content + '<strong>Type:</strong> ' + place[i].type + ' School' + '<br>';
-                            content = content + '<strong>Contact:</strong> ' + place[i].contact + '<br>';
-                            content = content + '<strong>Education Sector:</strong> ' + place[i].education_sector + '<br>';
-                            content = content + '</div>';
-                            infowindow.setContent(content);
-                            google.maps.event.addListener(marker, 'click', function() {
-                                if (typeof activeInfoWindow != "undefined") {
-                                    activeInfoWindow.close(map, this);
-                                }
-                                infowindow.open(map, this);
-                                activeInfoWindow = infowindow;
-                            });
-                            markergroup[param].marker.push(marker);
-                        }
-                    } else {
-                        for (let i in markergroup[param].marker) {
-                            markergroup[param].marker[i].setVisible(false);
-                        }
-                    }
-                    if (typeof activeInfoWindow != "undefined") {
-                        activeInfoWindow.close(map, this);
+                            infowindow.open(map, this);
+                            activeInfoWindow = infowindow;
+                        });
+                        markergroup[param].marker.push(marker);
                     }
                 }
 
-                function initMap() {
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: {{ location.latitude }}, lng: {{ location.longitude }}},
-                        zoom: 14,
-                    });
-                    map.data.addGeoJson(boundary);
-                    map.data.setStyle({
-                        fillColor: 'red',
-                        fillOpacity: 0.1,
-                        strokeWeight: 2,
-                        strokeColor: 'red',
-                        strokeOpacity: 0.3,
-                        clickable: false
-                    });
-                }
-            </script>
-        </div>
+                initMarkers('medical');
+                initMarkers('dentist');
+
+                map.data.addGeoJson(boundary);
+                map.data.setStyle({
+                    fillColor: 'red',
+                    fillOpacity: 0.1,
+                    strokeWeight: 2,
+                    strokeColor: 'red',
+                    strokeOpacity: 0.3,
+                    clickable: false
+                });
+            }
+        </script>
     </div>
+</div>
 
 
 {% else %}
@@ -243,3 +251,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap" async defer></script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 {% endblock %}
+
+
+
+
+
