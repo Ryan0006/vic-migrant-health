@@ -5,8 +5,25 @@ from .utils import Sendmail
 from common import settings
 import csv, requests, json
 
+
 def index(request):
     return render(request, "community/index.html", {})
+
+
+def error_400(request, exception):
+    return render(request, "community/error400.html", status=400)
+
+
+def error_403(request, exception):
+    return render(request, "community/error403.html", status=403)
+
+
+def error_404(request, exception):
+    return render(request, "community/error404.html", status=404)
+
+
+def error_500(request, exception):
+    return render(request, "community/error500.html", status=500)
 
 
 def search_suburb(request):
