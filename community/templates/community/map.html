@@ -50,8 +50,8 @@
             var iconBase = '{% static 'community/images' %}/';
             var markergroup = {
                 'hospital': {'place':{{ hospitals|safe }}, 'marker':[]},
-                'medical': {'place':{{ medicals|safe }}, 'marker':[]},
-                'dentist': {'place':{{ dentists|safe }}, 'marker':[]},
+                'medical': {'place':{{ medicals|safe }}, 'marker':[], 'cluster':null},
+                'dentist': {'place':{{ dentists|safe }}, 'marker':[], 'cluster':null},
                 'primary': {'place':{{ primary|safe }}, 'marker':[]},
                 'secondary': {'place':{{ secondary|safe }}, 'marker':[]},
                 'pri_sec': {'place':{{ pri_sec|safe }}, 'marker':[]},
@@ -63,10 +63,12 @@
                     for (let i in markergroup[param].marker) {
                         markergroup[param].marker[i].setVisible(true);
                     }
+                    markergroup[param].cluster.addMarkers(markergroup[param].marker);
                 } else {
                     for (let i in markergroup[param].marker) {
                         markergroup[param].marker[i].setVisible(false);
                     }
+                    markergroup[param].cluster.clearMarkers();
                 }
                 if (typeof activeInfoWindow != "undefined") {
                     activeInfoWindow.close(map, this);
@@ -212,10 +214,12 @@
                         });
                         markergroup[param].marker.push(marker);
                     }
+                    markergroup[param].cluster = new MarkerClusterer(map, [],{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
                 }
 
                 initMarkers('medical');
                 initMarkers('dentist');
+
 
                 map.data.addGeoJson(boundary);
                 map.data.setStyle({
@@ -249,7 +253,7 @@
 {% endif %}
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap" async defer></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="{% static 'community/js/markerclusterer.js' %}"></script>
 {% endblock %}
 
 
