@@ -165,10 +165,10 @@
 
                 function initMarkers(param){
                     for (let i in markergroup[param].place) {
-                        var place = markergroup[param].place[i];
+                        let place_found = markergroup[param].place[i];
                         var marker = new google.maps.Marker({
                             map: map,
-                            position: place.geometry.location,
+                            position: place_found.geometry.location,
                             animation: google.maps.Animation.DROP,
                             visible: false,
                         });
@@ -181,7 +181,7 @@
                             let infowindow = new google.maps.InfoWindow();
                             let service = new google.maps.places.PlacesService(map);
                             service.getDetails({
-                                placeId: place.place_id
+                                placeId: place_found.place_id
                             }, function(place, status) {
                                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                                     var content = '<div><h4><strong>' + place.name + '</strong></h4><br>';
