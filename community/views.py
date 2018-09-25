@@ -4,6 +4,8 @@ from lockdown.decorators import lockdown
 from .utils import Sendmail
 from common import settings
 import csv, requests, json
+from time import sleep
+
 
 
 def index(request):
@@ -199,10 +201,7 @@ def findsuburb(request):
 
 
 def map(request):
-    base = "/home/ryanchen0008/vic-migrant-health/"
-    relative = "community/static/community/js/vic.json"
-    path = relative
-    path = base + relative
+    path = settings.BASE_DIR + "/community/static/community/js/vic.json"
     boundary_json = json.load(open(path))
     QUERY_NEARBY = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
     name = request.GET.get('name')
@@ -214,8 +213,8 @@ def map(request):
             break
     community = Community.objects.filter(name__iexact=name).first()
     location = Suburblocation.objects.get(community=community, postcode=postcode)
-    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
-    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1500&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1000&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1000&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
     r_med = requests.get(medical_query)
     r_den = requests.get(dentist_query)
     medicals = []
@@ -226,6 +225,7 @@ def map(request):
             medicals.append(med)
         rn_med = r_med
         while 'next_page_token' in rn_med.json():
+            sleep(1.3)
             next_query = medical_query + '&pagetoken=' + rn_med.json()['next_page_token']
             rn_med = requests.get(next_query)
             if rn_med.status_code == 200:
@@ -239,6 +239,7 @@ def map(request):
             dentists.append(den)
         rn_den = r_den
         while 'next_page_token' in rn_den.json():
+            sleep(1.3)
             next_query = dentist_query + '&pagetoken=' + rn_den.json()['next_page_token']
             rn_den = requests.get(next_query)
             if rn_den.status_code == 200:
