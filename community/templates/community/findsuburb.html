@@ -307,7 +307,7 @@ F</section>
 {% endif %}
 <script>
 $('a.return-top').click(function(e) {
-    e.preventDefault();
+    $('html,body').scrollTop(0);
 });
 </script>
 {% endblock %}
