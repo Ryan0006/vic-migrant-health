@@ -91,8 +91,11 @@
         
 <!--Suburb-info-->
         
-        <div class="row d-flex pt-50 pb-50 justify-content-center">
+        <div class="row d-flex pt-50 pb-20 justify-content-center">
 				<h1>Information of {{ community.0.name }}</h1>
+		</div>
+        <div class="row d-flex pb-50 justify-content-center">
+                <a class="primary-btn2 header-btn btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.3 }}" style="color: #000; border-color: #000; border-width: 1px;">View it on Map</a>
 		</div>
         
 <!--row 1-->
@@ -101,37 +104,69 @@
                 <h3>Education Services</h3>
             </div>
 <!--row 2-->
-						<div class="row">
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Child Care/Kindergarten" data-placement="bottom" data-html="true" data-content="A count of sites within the community providing child care and/or kindergarten services. Includes sites providing long day care, occasional care, family day care coordination and kindergarten/preschool. Some sites provide more than one service, for example, long day care and kindergarten/preschool.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-child color-blue"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.kindergarten }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Kindergarten</div></div>
+            <div class="row">
+				<div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-child color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.kindergarten }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Kindergarten</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-child color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Includes sites providing long day care, occasional care, family day care coordination and kindergarten/preschool.</div></div>
+                            
+                        </div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding" data-toggle="popover" data-container="body" title="Primary School" data-placement="bottom" data-html="true" data-content="Government, Catholic and Independent schools which provide education for children in years preparatory to six. <br>Sources: Department of Education and Early Childhood Development, Catholic Education Office and Association of Independent Schools.">
+				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-chalkboard-teacher color-teal"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.primary_school }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Primary School</div></div>
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-chalkboard-teacher color-teal"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.primary_school }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Primary School</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-chalkboard-teacher color-teal"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Government, Catholic and Independent schools which provide education for children in years preparatory to six.</div></div>
+                        </div>                       
+
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Secondary School" data-placement="bottom" data-html="true" data-content="Government, Catholic and Independent schools which provide education for children in years 7 to 12.<br>Sources: Department of Education and Early Childhood Development, Catholic Education Office and Association of Independent Schools.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book-open color-orange"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.secondary_school }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Secondary School</div></div>
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book-open color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.secondary_school }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Secondary School</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book-open color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Government, Catholic and Independent schools which provide education for children in years 7 to 12.</div></div>
+                        </div> 
+						
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="P-12 School" data-placement="bottom" data-html="true" data-content="Government, Catholic and Independent schools which are governed by a single body and provide education for children from preparatory to year 12.<br>Sources: Department of Education and Early Childhood Development, Catholic Education Office and Association of Independent Schools.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book color-red"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.p12_school }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">P-12 School</div></div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.p12_school }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">P-12 School</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-book color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Government, Catholic and Independent schools which are governed by a single body and provide education for children from preparatory to year 12.</div></div>
+                        </div> 
+						
 					</div>
 				</div>
 			</div>
@@ -141,71 +176,132 @@
             </div>
 <!--row 4-->
             <div class="row">
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Disability Service" data-placement="bottom" data-html="true" data-content="A count of the number of services funded by the Department of Health providing community health care services activities, where the address of the outlet providing the services is in the community. Note this is a count of activities, so, for example, a community with two services each providing ëCommunity Healthí and ëFamily Planningí would have four services.<br>Source: Department of Human Services, Business Relationship Management Branch, Service Agreements Management System.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-wheelchair color-blue"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.disability }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Disability</div></div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-wheelchair color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.disability }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Disability</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-wheelchair color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Services funded by the Department of Health providing community health care services activities.</div></div>
+                        </div>
+
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Mental Health Service" data-placement="bottom" data-html="true" data-content="A count of the number of services funded by the Department of Health providing Mental Health Services, including clinical care-hospital, clinical care-other, and Psychiatric Disability and Rehabilitation Support Services (PDRSS), where the address of the outlet providing the services is in the community.<br>Source: Department of Human Services, Business Relationship Management Branch, Service Agreements Management System.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-sad-tear color-blue"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.mental_health }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Mental Health</div></div>
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-sad-tear color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.mental_health }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Mental Health</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-sad-tear color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Clinical care-hospital, clinical care-other, and Psychiatric Disability and Rehabilitation Support Services (PDRSS).</div></div>
+                        </div>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Dental Site" data-placement="bottom" data-html="true" data-content="A count of sites within a community providing dental services, and includes both public and private sites.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-tooth color-orange"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.dental }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Dental Site</div></div>
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-tooth color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.dental }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Dental Site</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-tooth color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Sites within a community providing dental services, and includes both public and private sites.</div></div>
+                        </div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="General Practice" data-placement="bottom" data-html="true" data-content="A count of sites within a community providing General Practitioner medical services.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-user-md color-red"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.general_practice }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">General Practice</div></div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-user-md color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.general_practice }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">General Practice</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-user-md color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Sites within a community providing General Practitioner medical services.</div></div>
+                        </div> 
+
 					</div>
 				</div>
 			</div>
 <!--row 5-->
             <div class="row">
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Pharmacy" data-placement="bottom" data-html="true" data-content="A count of sites within a community providing pharmacy services.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-pills color-red"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.pharmacy }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Pharmacy</div></div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-pills color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.pharmacy }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Pharmacy</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-pills color-red"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Sites within a community providing pharmacy services.</div></div>
+                        </div>                        
+
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Allied Health" data-placement="bottom" data-html="true" data-content="A count of sites within a community providing allied health services, including: audiology, chiropractic, dietetics, nutrition, occupational therapy, optometry, osteopathy, physiotherapy, podiatry, psychology and speech pathology.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-briefcase-medical color-orange"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.allied_health }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Allied Health</div></div>
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-briefcase-medical color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.allied_health }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Allied Health</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-briefcase-medical color-orange"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Audiology, chiropractic, dietetics, nutrition, occupational therapy, optometry, osteopathy, physiotherapy, podiatry, psychology and speech pathology.</div></div>
+                        </div>                        
+						
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Residential Aged Care" data-placement="bottom" data-html="true" data-content="A count of the number of aged care facilities licensed by the Commonwealth Department of Health & Ageing, where the address of the facility is within the community. Also includes Public Sector Residential Aged Care Services (PSRACS) and Supported Residential Services (SRS).<br>Source: Commonwealth Department of Health & Ageing, Service List, and Department of Health, Public Sector Residential Aged Care Services.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding color-teal"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.residential_aged_care }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Residential Aged Care</div></div>
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding color-teal"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.residential_aged_care }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Residential Aged Care</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding color-teal"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Aged care facilities licensed by the Commonwealth Department of Health &amp; Ageing, including Public Sector Residential Aged Care Services (PSRACS) and Supported Residential Services (SRS).</div></div>
+                        </div>                        
+
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right" data-toggle="popover" data-container="body" title="Complementary Health Site" data-placement="bottom" data-html="true" data-content="A count of sites within the community providing complementary health services, including: naturopathy, acupuncture, homeopathy, Chinese medicine, myotherapy and massage therapy.<br>Source: Department of Health, Human Services Directory.">
-						<div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding-heart color-blue"></em>
-						</div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.complementary_health }}</div></div>
-                        <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Complementary Health</div></div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="panel panel-teal panel-widget border-right">
+                        <div class="front">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding-heart color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="large">{{ community.0.complementary_health }}</div></div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-muted">Complementary Health</div></div>
+                        </div>
+                        <div class="back">
+                            <div class="row pt-10 pb-10 justify-content-center"><em class="fa fa-xl fa-hand-holding-heart color-blue"></em>
+                            </div>
+                            <div class="row pt-10 pb-10 justify-content-center"><div class="text-fliped">Sites providing complementary health services, including: naturopathy, acupuncture, homeopathy, Chinese medicine, myotherapy and massage therapy.</div></div>
+                        </div>                        
 					</div>
 				</div>
 			</div>
@@ -262,3 +358,4 @@
 
 
 {% endblock %}
+{% block bottom %}{% include 'community/footer.html' %}{% endblock %}

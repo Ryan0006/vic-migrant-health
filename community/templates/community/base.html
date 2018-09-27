@@ -46,7 +46,7 @@
 <body>
 <!--Navigation-->
     <header class="default-header">
-        <nav class="navbar navbar-expand-lg  navbar-light navbar-fixed-top">
+        <nav class="navbar navbar-expand-lg  navbar-light">
             <div class="container">
                   <a class="navbar-brand" href="{% url 'community:index' %}">
                     <span>Victorian Migrant Health</span>
@@ -70,52 +70,18 @@
 {% block body %}
 {% endblock %}
     
-    <!-- start footer Area -->		
-			<footer class="footer-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4  col-md-12">
-							<div class="single-footer-widget">
-								<h6>Links</h6>
-								<ul class="footer-nav">
-									<li><a href="{% url 'community:index' %}">Home</a></li>
-                                    <li><a href="http://tiny.cc/RAWS-NewVictorianHealth">Immunization</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4  col-md-12">
-							<div class="single-footer-widget">
-								<h6>Find Suburbs</h6>
-								<ul class="footer-nav">
-									<li><a href="{% url 'community:search' %}">Look up suburb</a></li>
-									<li><a href="{% url 'community:findsuburb' %}">Recommendation</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3  col-md-12">
-							<div class="single-footer-widget">
-								<h6>Team RAWS</h6>
-								<ul class="footer-nav">
-									<li><a href="{% url 'community:aboutus' %}">About us</a></li>
-                                    <li><a href="{% url 'community:aboutus' %}">Disclaimer</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="row footer-bottom d-flex justify-content-between">
-                        <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Team RAWS</p>
-                        <div id="google_translate_element" class="col-lg-4 col-sm-12"></div>
-                        <script type="text/javascript">
-                                function googleTranslateElementInit() {
-                                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                                }
-                        </script>
-                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  
-                        
-					</div>
-				</div>
-			</footer>
-			<!-- End footer Area -->
+<a href="#" class="sf-back-to-top"><i class="fa fa-angle-up fa-lg" style="color: white; margin-bottom: -10px;"></i><br>Top</a>
+<a href="#" class="sf-feedback" data-toggle="modal" data-target=".bd-feedback-modal-lg">Leave your feedback!</a>
+<div class="modal fade bd-feedback-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <iframe src="https://www.bookwidgets.com/play/HE7GQD"></iframe>
+    </div>
+  </div>
+</div>
+    
+{% block bottom %}
+{% endblock %}
+    
 </body>
 </html>

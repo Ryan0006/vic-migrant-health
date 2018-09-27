@@ -11,20 +11,21 @@ $(document).ready(function(){
 
 	$(".fullscreen").css("height", window_height)
 	$(".fitscreen").css("height", fitscreen);
+	$(".bd-feedback-modal-lg").css("height",fitscreen);
+	
 
-  //-------- Active Sticky Js ----------//
   $(".default-header").sticky({topSpacing:0});
 
-     if(document.getElementById("default-select")){
-          $('select').niceSelect();
-    };
+     // if(document.getElementById("default-select")){
+          // $('select').niceSelect();
+    // };
 
-    $('.img-pop-up').magnificPopup({
-        type: 'image',
-        gallery:{
-        enabled:true
-        }
-    });
+    // $('.img-pop-up').magnificPopup({
+        // type: 'image',
+        // gallery:{
+        // enabled:true
+        // }
+    // });
 
 
   // $('.navbar-nav>li>a').on('click', function(){
@@ -208,6 +209,48 @@ $(".progress-item").each(function(){
 	$(this).css("width", newP + "%");
 })
 
+ $("#all_healthCheck").click(function () {
+     $('.healthCheck').not(this).prop('checked', this.checked);
+ });
+ $("#all_educationCheck").click(function () {
+     $('.educationCheck').not(this).prop('checked', this.checked);
+ });
+ $("#all_otherCheck").click(function () {
+     $('.otherCheck').not(this).prop('checked', this.checked);
+ });
+
+ var amountScrolled = 300;
+
+$(window).scroll(function() {
+    if ( $(window).scrollTop() > amountScrolled ) {
+        $('a.sf-back-to-top').fadeIn('slow');
+		$('a.sf-feedback').fadeIn('slow');
+    } else {
+        $('a.sf-back-to-top').fadeOut('slow');
+		$('a.sf-feedback').fadeOut('slow');
+    }
+});
+
+$('a.sf-back-to-top').click(function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 700);
+    return false;
+});
+
+$('.suburb-btn').each(function(){
+	$(this).hover(function(){
+		
+		var percent = $(this).data('percentage');
+		$(this).children().removeClass('badge-secondary').addClass('badge-light');
+		$(this).children().text(percent);
+	},function(){
+		var postcode = $(this).data('postcode');
+		$(this).children().removeClass('badge-light').addClass('badge-secondary');
+		$(this).children().text(postcode);
+	})
+}); 
+ 
 });
 
 

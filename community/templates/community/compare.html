@@ -48,7 +48,7 @@
       <th class="hide"></th>
     {% for community in result_list %}
         <th class="bg-blue pt-20 pb-20 stat">
-            <span class="txt-l">{{ community.0.name }}</span>
+            <span class="txt-l">{{ community.0.name }}</span><br>
             <a class="btn primary-btn2 header-btn1" href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a>
         </th>
     {% endfor %}
@@ -207,39 +207,46 @@
 </article>
 </div>
 <div class="container">
-    <form method="POST" action="{% url 'community:compare' %}">{% csrf_token %}
-        <label for="email">Send a copy of this report to email: </label>
-        <input type="text" id="email" name="email" size="40"/>
-        {% for community in result_list %}
-            <input type="hidden" name="name" value="{{ community.0.name }}">
-            <input type="hidden" name="postcode" value={{ community.3 }}>
-            <input type="hidden" name="mylng" value={{ community.2.0 }}>
-            <input type="hidden" name="homeland" value={{ community.2.1 }}>
-            <input type="hidden" name="overseas" value={{ community.0.born_overseas }}>
-            <input type="hidden" name="noneng" value={{ community.0.except_eng }}>
-            <input type="hidden" name="first_name" value="{{ community.0.culture_group1_name }}">
-            <input type="hidden" name="second_name" value="{{ community.0.culture_group2_name }}">
-            <input type="hidden" name="third_name" value="{{ community.0.culture_group3_name }}">
-            <input type="hidden" name="forth_name" value="{{ community.0.culture_group4_name }}">
-            <input type="hidden" name="first_per" value={{ community.0.culture_group1_per }}>
-            <input type="hidden" name="second_per" value={{ community.0.culture_group2_per }}>
-            <input type="hidden" name="third_per" value={{ community.0.culture_group3_per }}>
-            <input type="hidden" name="forth_per" value={{ community.0.culture_group4_per }}>
-            <input type="hidden" name="kindergarten" value={{ community.0.kindergarten }}>
-            <input type="hidden" name="primary" value={{ community.0.primary_school }}>
-            <input type="hidden" name="secondary" value={{ community.0.secondary_school }}>
-            <input type="hidden" name="p12" value={{ community.0.p12_school }}>
-            <input type="hidden" name="mental" value={{ community.0.mental_health }}>
-            <input type="hidden" name="dental" value={{ community.0.dental }}>
-            <input type="hidden" name="gp" value={{ community.0.general_practice }}>
-            <input type="hidden" name="pharmacy" value={{ community.0.pharmacy }}>
-            <input type="hidden" name="allied" value={{ community.0.allied_health }}>
-            <input type="hidden" name="complementary" value={{ community.0.complementary_health }}>
-            <input type="hidden" name="disability" value={{ community.0.disability }}>
-            <input type="hidden" name="residential" value={{ community.0.residential_aged_care }}>
-        {% endfor %}
-        <button type="submit">send</button>
+    <div class="row pb-50 justify-content-center">
+        <form class="w-75" method="POST" action="{% url 'community:compare' %}">{% csrf_token %}
+        <h4 class="pb-20">Send a copy of this report to email: </h4>
+        <div class="input-group">
+            <input type="email" name="email" required placeholder="Enter a valid email address" id="email" class="form-control"/>
+            {% for community in result_list %}
+                <input type="hidden" name="name" value="{{ community.0.name }}">
+                <input type="hidden" name="postcode" value={{ community.3 }}>
+                <input type="hidden" name="mylng" value={{ community.2.0 }}>
+                <input type="hidden" name="homeland" value={{ community.2.1 }}>
+                <input type="hidden" name="overseas" value={{ community.0.born_overseas }}>
+                <input type="hidden" name="noneng" value={{ community.0.except_eng }}>
+                <input type="hidden" name="first_name" value="{{ community.0.culture_group1_name }}">
+                <input type="hidden" name="second_name" value="{{ community.0.culture_group2_name }}">
+                <input type="hidden" name="third_name" value="{{ community.0.culture_group3_name }}">
+                <input type="hidden" name="forth_name" value="{{ community.0.culture_group4_name }}">
+                <input type="hidden" name="first_per" value={{ community.0.culture_group1_per }}>
+                <input type="hidden" name="second_per" value={{ community.0.culture_group2_per }}>
+                <input type="hidden" name="third_per" value={{ community.0.culture_group3_per }}>
+                <input type="hidden" name="forth_per" value={{ community.0.culture_group4_per }}>
+                <input type="hidden" name="kindergarten" value={{ community.0.kindergarten }}>
+                <input type="hidden" name="primary" value={{ community.0.primary_school }}>
+                <input type="hidden" name="secondary" value={{ community.0.secondary_school }}>
+                <input type="hidden" name="p12" value={{ community.0.p12_school }}>
+                <input type="hidden" name="mental" value={{ community.0.mental_health }}>
+                <input type="hidden" name="dental" value={{ community.0.dental }}>
+                <input type="hidden" name="gp" value={{ community.0.general_practice }}>
+                <input type="hidden" name="pharmacy" value={{ community.0.pharmacy }}>
+                <input type="hidden" name="allied" value={{ community.0.allied_health }}>
+                <input type="hidden" name="complementary" value={{ community.0.complementary_health }}>
+                <input type="hidden" name="disability" value={{ community.0.disability }}>
+                <input type="hidden" name="residential" value={{ community.0.residential_aged_care }}>
+            {% endfor %}
+            <div class="input-group-append">
+                <button class="btn" type="submit">Send</button>
+            </div>
+        </div>
     </form>
+    </div>
+    
 </div>
 {% else %}
 <!--Error-Message-->
@@ -387,3 +394,4 @@ var health = new Chart(ctx_health, {
 
 
 {% endblock %}
+{% block bottom %}{% include 'community/footer.html' %}{% endblock %}
