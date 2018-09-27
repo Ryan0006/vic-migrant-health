@@ -3,7 +3,7 @@ from .models import Community, Language, Country, Suburblocation, School, Hospit
 from lockdown.decorators import lockdown
 from .utils import Sendmail
 from common import settings
-import csv, requests, json
+import csv, requests, json, math
 from time import sleep
 
 
@@ -213,8 +213,9 @@ def map(request):
             break
     community = Community.objects.filter(name__iexact=name).first()
     location = Suburblocation.objects.get(community=community, postcode=postcode)
-    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1000&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
-    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=1000&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    radius = math.sqrt(community.area / 3.1415) * 1000
+    medical_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=' + str(radius) + '&type=doctor&type=hospital' + '&key=' + settings.GOOGLE_MAPS_API_KEY
+    dentist_query = QUERY_NEARBY + 'location=' + str(location.latitude) + ',' + str(location.longitude) + '&radius=' + str(radius) + '&type=dentist' + '&key=' + settings.GOOGLE_MAPS_API_KEY
     r_med = requests.get(medical_query)
     r_den = requests.get(dentist_query)
     medicals = []

@@ -7,8 +7,9 @@ from django.conf.urls import handler400, handler403, handler404, handler500
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('', include('community.urls')),
-    url(r'^static/(?P<path>.*)$', static.serve,{'document_root':settings.STATIC_ROOT}),
+    # url(r'^static/(?P<path>.*)$', static.serve,{'document_root':settings.STATIC_ROOT}),
 ]
+
 
 handler400 = 'community.views.error_400'
 handler403 = 'community.views.error_403'
