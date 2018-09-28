@@ -5,7 +5,9 @@ class Sendmail():
                  first_per,second_per,third_per,forth_per,kindergarten,primary,secondary,p12,mental,
                  dental,gp,pharmacy,allied,complementary,disability,residential):
         message = """<html>
-                             <head></head>
+                             <head>
+                             
+                             </head>
                              <body>
                              <p>Hi there,<p>
                              <br>

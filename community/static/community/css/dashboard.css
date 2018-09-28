@@ -418,6 +418,8 @@ a.label:hover, a.label:focus {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.2em; }
+  
+
 
 .panel-widget .large {
   color: #373b45;
@@ -911,3 +913,56 @@ p.back-link {
   margin-bottom: 20px;
   font-size: 12px;
   text-transform: uppercase; }
+  
+ .text-fliped {
+  margin-top: -6px;
+  font-weight: normal;
+  font-size: 1em;
+  padding-left:20px;
+  padding-right:20px; }
+ 
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+	position: absolute;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 300ms;
+    transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+    /* border-radius: 5px; */
+}
+.front {
+    transform: rotateY(0deg);
+    /* background: -webkit-linear-gradient(top left, #84DD63, #009970); */
+    /* background: linear-gradient(to bottom right, #84DD63, #009970); */
+    /* text-align: center; */
+    /* padding: 30px; */
+}
+.back {
+    /* background: -webkit-linear-gradient(top left, #009970, #84DD63); */
+    /* background: linear-gradient(to bottom right, #009970, #84DD63); */
+	
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    /* padding: 40px 15px; */
+    /* color: #fff; */
+}
+.panel-widget:hover .front {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+}
+.panel-widget:hover .back {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+}
+
+.no-padding {
+	min-height:200px;
+}
+
+

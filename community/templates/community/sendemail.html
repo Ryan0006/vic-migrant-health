@@ -5,8 +5,29 @@
 {% block body %}
 
 {% load staticfiles %}
+<!--
 <div class="container">
     <h1>Thank you for being with us, a detailed copy of suburbs information has been sent to {{ email }}.</h1>
 
 </div>
+-->
+<section class="skill-area section-gap align-items-center" style="height: 600px;">
+        <div class="container">
+            <div class="row d-flex justify-content-center pt-50 pb-50">
+                <i class="fas fa-envelope fa-10x"></i>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <h1 style="color: white; text-align: center">Thank you for being with us, a detailed copy of suburbs information has been sent to {{ email }}.</h1>
+            </div>
+            <div class="row d-flex pt-50 justify-content-center">
+            <a id="return-button" class="primary-btn2 header-btn text-uppercase return-top" href="#" role="button" onclick="goBack()">Back to compare</a >
+                <script>
+                function goBack() {
+                    window.history.back()
+                }
+                </script>
+            </div>
+        </div>
+</section>
 {% endblock %}
+{% block bottom %}{% include 'community/footer.html' %}{% endblock %}

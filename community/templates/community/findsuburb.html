@@ -54,7 +54,7 @@
                                           <div class="dropdown-menu w-100" aria-labelledby="dropdownHealthNeeds">
                                               <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                <input id="mentalCheck" type="checkbox" name="filters" value="mental_health" {% if 'mental_health' in filters %}checked{% endif %}/> 
+                                                <input id="mentalCheck" type="checkbox" class="healthCheck" name="filters" value="mental_health" {% if 'mental_health' in filters %}checked{% endif %}/> 
                                                 <label class="form-check-label" for="mentalCheck">
                                                     Mental Health Service
                                                 </label>
@@ -62,7 +62,7 @@
                                               </div>
                                               <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                 <input id="dentalCheck" type="checkbox" name="filters" value="dental" {% if 'dental' in filters %}checked{% endif %}/>
+                                                 <input id="dentalCheck" type="checkbox" class="healthCheck" name="filters" value="dental" {% if 'dental' in filters %}checked{% endif %}/>
                                                 <label class="form-check-label" for="dentalCheck">
                                                     Dental Service
                                                 </label>
@@ -70,7 +70,7 @@
                                               </div>
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                 <input id="general_practiceCheck" type="checkbox" name="filters" value="general_practice" {% if 'general_practice' in filters %}checked{% endif %}/>
+                                                 <input id="general_practiceCheck" type="checkbox" class="healthCheck" name="filters" value="general_practice" {% if 'general_practice' in filters %}checked{% endif %}/>
                                                 <label class="form-check-label" for="general_practiceCheck">
                                                     General Practice
                                                 </label>
@@ -78,7 +78,7 @@
                                               </div>
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                 <input id="pharmacyCheck" type="checkbox" name="filters" value="pharmacy" {% if 'pharmacy' in filters %}checked{% endif %}/>
+                                                 <input id="pharmacyCheck" type="checkbox" class="healthCheck" name="filters" value="pharmacy" {% if 'pharmacy' in filters %}checked{% endif %}/>
                                                 <label class="form-check-label" for="pharmacyCheck">
                                                     Pharmacy
                                                 </label>
@@ -86,7 +86,7 @@
                                               </div>
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                 <input id="allied_healthCheck" type="checkbox" name="filters" value="allied_health" {% if 'allied_health' in filters %}checked{% endif %}/>
+                                                 <input id="allied_healthCheck" type="checkbox" class="healthCheck" name="filters" value="allied_health" {% if 'allied_health' in filters %}checked{% endif %}/>
                                                 <label class="form-check-label" for="allied_healthCheck">
                                                     Allied Health Service
                                                 </label>
@@ -94,12 +94,20 @@
                                               </div>
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
-                                                 <input id="complementary_healthCheck" type="checkbox" name="filters" value="complementary_health" {% if 'complementary_health' in filters %}checked{% endif %}/>
+                                                 <input id="complementary_healthCheck" type="checkbox" class="healthCheck" name="filters" value="complementary_health" {% if 'complementary_health' in filters %}checked{% endif %}/>
                                                 <label class="form-check-label" for="complementary_healthCheck">
                                                     Complementary Health Service
                                                 </label>
                                                 </div>
-                                              </div>                                          
+                                              </div>
+                                              <div class="dropdown-item">
+                                                <div class="custom-checkbox">
+                                                 <input id="all_healthCheck" type="checkbox" class="healthCheck"/>
+                                                <label class="form-check-label" for="all_healthCheck">
+                                                    Select All
+                                                </label>
+                                                </div>
+                                              </div>
                                           </div>
                                     </div>
                                 </div>
@@ -113,7 +121,7 @@
                                   <div class="dropdown-menu w-100" aria-labelledby="dropdownEducationNeeds">
                                       <div class="dropdown-item">
                                         <div class="custom-checkbox">
-                                         <input id="kindergartenCheck" type="checkbox" name="filters" value="kindergarten" {% if 'kindergarten' in filters %}checked{% endif %}/>
+                                         <input id="kindergartenCheck" type="checkbox" class="educationCheck" name="filters" value="kindergarten" {% if 'kindergarten' in filters %}checked{% endif %}/>
                                         <label class="form-check-label" for="kindergartenCheck">
                                             kindergarten
                                         </label>
@@ -121,7 +129,7 @@
                                       </div>
                                       <div class="dropdown-item">
                                         <div class="custom-checkbox">
-                                         <input id="primary_schoolCheck" type="checkbox" name="filters" value="primary_school" {% if 'primary_school' in filters %}checked{% endif %}/>
+                                         <input id="primary_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="primary_school" {% if 'primary_school' in filters %}checked{% endif %}/>
                                         <label class="form-check-label" for="primary_schoolCheck">
                                             Primary School
                                         </label>
@@ -129,7 +137,7 @@
                                       </div>
                                         <div class="dropdown-item">
                                         <div class="custom-checkbox">
-                                         <input id="secondary_schoolCheck" type="checkbox" name="filters" value="secondary_school" {% if 'secondary_school' in filters %}checked{% endif %}/>
+                                         <input id="secondary_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="secondary_school" {% if 'secondary_school' in filters %}checked{% endif %}/>
                                         <label class="form-check-label" for="secondary_schoolCheck">
                                             Secondary School
                                         </label>
@@ -137,12 +145,20 @@
                                       </div>
                                         <div class="dropdown-item">
                                         <div class="custom-checkbox">
-                                         <input id="p12_schoolCheck" type="checkbox" name="filters" value="p12_school" {% if 'p12_school' in filters %}checked{% endif %}/>
+                                         <input id="p12_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="p12_school" {% if 'p12_school' in filters %}checked{% endif %}/>
                                         <label class="form-check-label" for="p12_schoolCheck">
                                             P-12 School
                                         </label>
                                         </div>
-                                      </div>                                         
+                                      </div>
+                                        <div class="dropdown-item">
+                                            <div class="custom-checkbox">
+                                             <input id="all_educationCheck" type="checkbox" class="educationCheck"/>
+                                            <label class="form-check-label" for="all_educationCheck">
+                                                Select All
+                                            </label>
+                                            </div>
+                                        </div>
                                   </div>
                             </div>
                             </div>
@@ -155,7 +171,7 @@
                                       <div class="dropdown-menu w-100" aria-labelledby="dropdownOtherNeeds">
                                             <div class="dropdown-item">
                                             <div class="custom-checkbox">
-                                             <input id="disabilityCheck" type="checkbox" name="filters" value="disability" {% if 'disability' in filters %}checked{% endif %}/>
+                                             <input id="disabilityCheck" type="checkbox" class="otherCheck" name="filters" value="disability" {% if 'disability' in filters %}checked{% endif %}/>
                                             <label class="form-check-label" for="disabilityCheck">
                                                 Disability Service
                                             </label>
@@ -163,12 +179,20 @@
                                           </div>
                                           <div class="dropdown-item">
                                             <div class="custom-checkbox">
-                                             <input id="residential_aged_careCheck" type="checkbox" name="filters" value="residential_aged_care" {% if 'residential_aged_care' in filters %}checked{% endif %}/>
+                                             <input id="residential_aged_careCheck" type="checkbox" class="otherCheck" name="filters" value="residential_aged_care" {% if 'residential_aged_care' in filters %}checked{% endif %}/>
                                             <label class="form-check-label" for="residential_aged_careCheck">
                                                 Residential Aged Care Service
                                             </label>
                                             </div>
-                                          </div>                                         
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <div class="custom-checkbox">
+                                             <input id="all_otherCheck" type="checkbox" class="otherCheck"/>
+                                            <label class="form-check-label" for="all_otherCheck">
+                                                Select All
+                                            </label>
+                                            </div>
+                                          </div>
                                       </div>
                                 </div>
                             </div>
@@ -195,7 +219,7 @@ F</section>
     <div class="card text-center pt-50 pb-40">
 
         <a id="return-button" class="btn btn-light pt-20 pb-20 return-top" href="#" role="button" style="font-size:13pt;color:darkblue;">Return to Search</a >
-        <div class="card-body ">
+        <div class="card-body">
             <h3 class="pt-30">These suburbs have most {{ language }} speaking people:</h3>
 
             {% if filters %}
@@ -227,7 +251,7 @@ F</section>
             <div class="container" id="suburb-area">
                 <div class="row pt-50">
                     <div id="compare-div" class="col col-md-12">
-                        <button class="btn primary-btn2 header-btn1" id="compare-btn" type="button">Enable Compare</button>
+                        <button class="btn primary-btn2 header-btn1" id="compare-btn" type="button">Suburb Compare</button>
                     </div>
                     <div id="gocompare-div" class="col col-md-12">
                         <button id="goCompare-btn" class="btn primary-btn2 header-btn1" type="submit" style="display:none" disabled="disabled">Go Compare</button>
@@ -239,13 +263,13 @@ F</section>
                     {% if forloop.counter > 12 %}
                     <div class="col pt-10 pb-10 collapse collapse-suburb">
                         <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
-                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, 0)">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, 0)" data-percentage="13.32%" data-postcode="{{ suburblocation.postcode }}">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
                         <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
                     </div>
                     {% else %}
                     <div class="col pt-10 pb-10">
                         <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
-                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, {{ forloop.counter|calculateop }})">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, {{ forloop.counter|calculateop }})" data-percentage="13.32%" data-postcode="{{ suburblocation.postcode }}">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
                         <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
                     </div>
                     {% endif %}
@@ -311,3 +335,4 @@ $('a.return-top').click(function(e) {
 });
 </script>
 {% endblock %}
+{% block bottom %}{% include 'community/footer.html' %}{% endblock %}
