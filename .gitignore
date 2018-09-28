@@ -4,4 +4,3 @@ community/static/community/images/
 __pycache__/
 .idea/
 venv/
-db.sqlite3
