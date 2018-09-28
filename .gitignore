@@ -3,4 +3,4 @@ community/static/community/csv/
 __pycache__/
 .idea/
 venv/
-db.sqlite3
+
