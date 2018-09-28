@@ -17,7 +17,7 @@
             <div class="col-lg-6 skill-left">
                 <h1 class="text-white text-title mb-30">{{ community.0.name }}</h1>
                 <h2 class="text-white mb-30">{{ community.3 }}</h2>
-                <a class="primary-btn2 header-button btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.3 }}" style="color:#FFF">View map</a >
+<!--                <a class="primary-btn2 header-button btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.3 }}" style="color:#FFF">View map</a >-->
             </div>
             <div class="col-lg-6 skill-right">
                 <div class="row d-flex justify-content-center">
@@ -95,7 +95,7 @@
 				<h1>Information of {{ community.0.name }}</h1>
 		</div>
         <div class="row d-flex pb-50 justify-content-center">
-                <a class="primary-btn2 header-btn btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.3 }}" style="color: #000; border-color: #000; border-width: 1px;">View it on Map</a>
+                <a class="btn primary-btn2 header-btn1 btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.3 }}" >View it on Map</a>
 		</div>
         
 <!--row 1-->
