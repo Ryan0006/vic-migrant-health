@@ -9,7 +9,7 @@ $(function(){
 					$(this).attr("style","display: inline-block");
 					
 				});
-				$("#compare-btn").text("Disable Compare");
+				$("#compare-btn").text("Cancel");
 				$("#goCompare-btn").attr("style","display: inline");
 				$("#compare-div").attr("class","col col-md-6");
 				$("#gocompare-div").attr("class","col col-md-6");
@@ -24,7 +24,7 @@ $(function(){
 					$(this).attr("style","display: none");
 					
 				});
-				$("#compare-btn").text("Enable Compare");
+				$("#compare-btn").text("Compare Suburbs");
 				$("#goCompare-btn").attr("style","display: none");
 				$("#compare-div").attr("class","col col-md-12");
 				$("#gocompare-div").attr("class","col col-md-12");
