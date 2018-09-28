@@ -187,9 +187,10 @@ def findsuburb(request):
         ordered_lng.sort(key=language_per_community, reverse=True)
         result_list = []
         for language in ordered_lng:
+            lng_per = language_per_community(language)
             suburblocation_list = Suburblocation.objects.filter(community=language.community)
             for suburblocation in suburblocation_list:
-                result_list.append(suburblocation)
+                result_list.append((suburblocation, lng_per))
         return render(request, 'community/findsuburb.html', {"country_dict": country_dict,
                                                              "result_list": result_list,
                                                              "post": True,

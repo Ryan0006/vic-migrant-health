@@ -262,15 +262,15 @@ F</section>
 
                     {% if forloop.counter > 12 %}
                     <div class="col pt-10 pb-10 collapse collapse-suburb">
-                        <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
-                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, 0)" data-percentage="13.32%" data-postcode="{{ suburblocation.postcode }}">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
-                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
+                        <a href="{% url 'community:result' %}?name={{ suburblocation.0.community.name }}&postcode={{ suburblocation.0.postcode }}&country={{ country }}&language={{ language }}"
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, 0)" data-percentage="{{ suburblocation.1 }}%" data-postcode="{{ suburblocation.0.postcode }}">{{ suburblocation.0.community.name }} <span class="badge badge-secondary">{{ suburblocation.0.postcode }}</span></a><br>
+                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.0.community.name }}+{{ suburblocation.0.postcode }}" style="display: none"/>
                     </div>
                     {% else %}
                     <div class="col pt-10 pb-10">
-                        <a href="{% url 'community:result' %}?name={{ suburblocation.community.name }}&postcode={{ suburblocation.postcode }}&country={{ country }}&language={{ language }}"
-                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, {{ forloop.counter|calculateop }})" data-percentage="13.32%" data-postcode="{{ suburblocation.postcode }}">{{ suburblocation.community.name }} <span class="badge badge-secondary">{{ suburblocation.postcode }}</span></a><br>
-                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.community.name }}+{{ suburblocation.postcode }}" style="display: none"/>
+                        <a href="{% url 'community:result' %}?name={{ suburblocation.0.community.name }}&postcode={{ suburblocation.0.postcode }}&country={{ country }}&language={{ language }}"
+                           class="btn primary-btn2 suburb-btn my-2 my-sm-0" style="background-color: rgba(132, 144, 255, {{ forloop.counter|calculateop }})" data-percentage="{{ suburblocation.1 }}%" data-postcode="{{ suburblocation.0.postcode }}">{{ suburblocation.0.community.name }} <span class="badge badge-secondary">{{ suburblocation.0.postcode }}</span></a><br>
+                        <input type="checkbox" name="compare_list" class="compare-item" value="{{ suburblocation.0.community.name }}+{{ suburblocation.0.postcode }}" style="display: none"/>
                     </div>
                     {% endif %}
 
