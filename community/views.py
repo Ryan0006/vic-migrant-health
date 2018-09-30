@@ -36,8 +36,13 @@ def about_us(request):
     return render(request, "community/aboutus.html", {})
 
 
+def visualization(request):
+    return render(request, "community/visualization.html", {})
+
+
 def immunization(request):
     return render(request, "community/immunization.html", {})
+
 
 def sendemail(request):
     return render(request, "community/sendemail.html", {})

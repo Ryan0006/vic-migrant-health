@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^sendemail/$', views.sendemail, name='sendemail'),
     url(r'^immunization/$', views.immunization, name='immunization'),
     # url(r'^compare/chart/$', views.ChartData.as_view()),
+    url(r'^visualization/$', views.visualization, name='visualization'),
     url(r'^readCommunity/$', views.readCommunity, name='readCommunity'),
     url(r'^readLanguage/$', views.readLanguage, name='readLanguage'),
     url(r'^readCountry/$', views.readCountry, name='readCountry'),
