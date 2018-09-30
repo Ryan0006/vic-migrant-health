@@ -5,7 +5,8 @@
 {% block body %}
 
 {% load staticfiles %}
-<section class="compare-area relative" data-parallax="scroll" data-image-src="{% static 'community/images/visualization-bg.jpg' %}">
+<!--<section class="compare-area relative" data-parallax="scroll" data-image-src="{% static 'community/images/visualization-bg.jpg' %}">-->
+<section class="compare-area relative" style="background-image: url({% static 'community/images/visualization-bg.jpg' %})">
     <div class="overlay-bg overlay">
     </div>
     <div class="container">
@@ -23,6 +24,18 @@
 
 </section>
 <div class="container">
+    <div class="row pt-20 pb-20 justify-content-center">
+        <h1>Instructions</h1>
+    </div>
+    <div class="row pb-10 justify-content-center">
+        <h5>1. <span style="font-weight: 700;color: dodgerblue">Select a language</span> to view Suburbs that have people speaking the selected Language.</h5>
+    </div>
+    <div class="row pb-10 justify-content-center">
+        <h5>2. Use the <span style="font-weight: 700;color: dodgerblue">Percentage Slider</span> to vary the percentage of people speaking the Language.</h5>
+    </div>
+    <div class="row pb-10 justify-content-center">
+        <h5>3. <span style="font-weight: 700;color: dodgerblue">Click on a Suburb</span> in the Bar Chart for information about the services available in the Suburb.</h5>
+    </div>
     <div class='tableauPlaceholder justify-content-center pb-50' id='viz1538287519761' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SuburbLanguageVisualisation&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SuburbLanguageVisualisation&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SuburbLanguageVisualisation&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
 </div>
     <script type='text/javascript'>
