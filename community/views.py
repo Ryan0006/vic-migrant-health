@@ -42,6 +42,8 @@ def immunization(request):
 def sendemail(request):
     return render(request, "community/sendemail.html", {})
 
+def visualization(request):
+    return render(request, "community/visualization.html", {})
 
 def detail(request):
     name = request.GET.get('name')
