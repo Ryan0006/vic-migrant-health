@@ -156,25 +156,10 @@ $(document).ready(function(){
  
  $("#collapse-button").click(function(){
 	   var textChange = $(this).text();
-	   textChange = textChange == "Show More" ? "Show Less" : "Show More";
+	   textChange = textChange == "Show all" ? "Show less" : "Show all";
 	   $(this).text(textChange);
  });
 
-//    $("#to_compare").click(function(){
-//    var c_str;
-//    c_str = document.getElementById('commun_str').value
-//
-//    $.ajax(
-//    {
-//        type:"GET",
-//        url: "/compare",
-//        contentType: "application/json;charset=UTF-8",
-//        data:{
-//                 community_str: c_str
-//        },
-//
-//     })
-//});
 
 $('[data-toggle="popover"]').popover({
   trigger: 'hover'

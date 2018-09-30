@@ -10,7 +10,7 @@ $(function(){
 					
 				});
 				$("#compare-btn").text("Cancel");
-				$("#goCompare-btn").attr("style","display: inline");
+				$("#goCompare-btn").attr("style","display: inline;background-color: #FFF; border-color: #000;");
 				$("#compare-div").attr("class","col col-md-6");
 				$("#gocompare-div").attr("class","col col-md-6");
 				hasOpen = true;
@@ -25,7 +25,7 @@ $(function(){
 					
 				});
 				$("#compare-btn").text("Compare suburbs");
-				$("#goCompare-btn").attr("style","display: none");
+				$("#goCompare-btn").attr("style","display: none;background-color: #FFF; border-color: #000;");
 				$("#compare-div").attr("class","col col-md-12");
 				$("#gocompare-div").attr("class","col col-md-12");
 				hasOpen = false;
