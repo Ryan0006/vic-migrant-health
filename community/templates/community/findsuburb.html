@@ -16,8 +16,7 @@
         <div class="row fullscreen  d-flex align-items-center justify-content-end">
             <div class="banner-content col-lg-12 col-md-12" style="margin-top:-100px;">
                 <div class="row justify-content-center">
-                    <h1 style="text-align: center">We can <span>help you</span> find the best place
-                        <span>In Victoria</span></h1>
+                    <h1 style="text-align: center">We can <span>help you</span> find the<br> <span>best suburb</span> In Victoria</h1>
                 </div>
                 <div class="row pt-20" style="background-color: rgba(179, 179, 179, 0.5)">
                     <div class="container">
@@ -42,7 +41,7 @@
                             </div>
                             <div class="row pt-10 pb-20 align-items-center justify-content-center" style="margin-top:8px;">
                                 <div class="col col-md-2 align-items-center">
-                                    <h3 style="font-weight: 400; font-size: 20px; color: #FFF;">Special Needs:</h3>
+                                    <h3 style="font-weight: 400; font-size: 18px; color: #FFF;">Services needed in your suburb :</h3>
                                 </div>
                                 <div class="col col-md-10">
                                     <div class="row">
@@ -104,7 +103,7 @@
                                                 <div class="custom-checkbox">
                                                  <input id="all_healthCheck" type="checkbox" class="healthCheck"/>
                                                 <label class="form-check-label" for="all_healthCheck">
-                                                    Select All
+                                                    Need All
                                                 </label>
                                                 </div>
                                               </div>
@@ -155,7 +154,7 @@
                                             <div class="custom-checkbox">
                                              <input id="all_educationCheck" type="checkbox" class="educationCheck"/>
                                             <label class="form-check-label" for="all_educationCheck">
-                                                Select All
+                                                Need All
                                             </label>
                                             </div>
                                         </div>
@@ -189,7 +188,7 @@
                                             <div class="custom-checkbox">
                                              <input id="all_otherCheck" type="checkbox" class="otherCheck"/>
                                             <label class="form-check-label" for="all_otherCheck">
-                                                Select All
+                                                Need All
                                             </label>
                                             </div>
                                           </div>
@@ -220,10 +219,10 @@ F</section>
 
         <a id="return-button" class="btn btn-light pt-20 pb-20 return-top" href="#" role="button" style="font-size:13pt;color:darkblue;">Return to Search</a >
         <div class="card-body">
-            <h3 class="pt-30">These suburbs have most {{ language }} speaking people:</h3>
+            <h3 class="pt-30">These suburbs have highest portion of {{ language }} speakers</h3>
 
             {% if filters %}
-            <h5 class="pb-20">Filters applied: 
+            <h4 class="pb-20">with available services of
                 {% if 'mental_health' in filters %}<span class="badge badge-secondary">Mental Health</span>{% endif %}
                 {% if 'dental' in filters %}<span class="badge badge-secondary">Dental</span>{% endif %}
                 {% if 'general_practice' in filters %}<span class="badge badge-secondary">General Practice</span>{% endif %}
@@ -236,7 +235,7 @@ F</section>
                 {% if 'p12_school' in filters %}<span class="badge badge-secondary">P12 School</span>{% endif %}
                 {% if 'disability' in filters %}<span class="badge badge-secondary">Disability</span>{% endif %}
                 {% if 'residential_aged_care' in filters %}<span class="badge badge-secondary">Residental Aged Care</span>{% endif %}
-            </h5>
+            </h4>
             {% endif %}
             
             <form method="GET" action="{% url 'community:compare' %}">
@@ -251,7 +250,7 @@ F</section>
             <div class="container" id="suburb-area">
                 <div class="row pt-50">
                     <div id="compare-div" class="col col-md-12">
-                        <button class="btn primary-btn2 header-btn1" id="compare-btn" type="button">Compare Suburbs</button>
+                        <button class="btn primary-btn2 header-btn1" id="compare-btn" type="button">Compare suburbs</button>
                     </div>
                     <div id="gocompare-div" class="col col-md-12">
                         <button id="goCompare-btn" class="btn primary-btn2 header-btn1" type="submit" style="display:none" disabled="disabled">Go Compare</button>
@@ -282,7 +281,7 @@ F</section>
                 <div class="row pt-50 justify-content-center">
                     <div class="col-md-12">
                         <a id="collapse-button" class="btn primary-btn2 header-btn1" data-toggle="collapse"
-                           href=".collapse-suburb" role="button">Show More</a>
+                           href=".collapse-suburb" role="button">Show all</a>
                     </div>
                 </div>
 
@@ -303,7 +302,7 @@ F</section>
         </button>
       </div>
       <div class="modal-body">
-        Please tick 2-4 checkboxes, then click "Go Compare".
+        Please tick 2-4 suburbs, then hit "Go Compare".
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

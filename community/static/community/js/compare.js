@@ -24,7 +24,7 @@ $(function(){
 					$(this).attr("style","display: none");
 					
 				});
-				$("#compare-btn").text("Compare Suburbs");
+				$("#compare-btn").text("Compare suburbs");
 				$("#goCompare-btn").attr("style","display: none");
 				$("#compare-div").attr("class","col col-md-12");
 				$("#gocompare-div").attr("class","col col-md-12");
