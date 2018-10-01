@@ -6,13 +6,20 @@ class Sendmail():
                  dental,gp,pharmacy,allied,complementary,disability,residential):
         message = """<html>
                              <head>
-                             
+                             <style>
+                                table {
+                                    border-collapse: collapse;
+                                }
+                                
+                                table, td, th {
+                                    border: 1px solid black;
+                                }
+                            </style>
                              </head>
                              <body>
-                             <p>Hi there,<p>
-                             <br>
-                              <p>Thanks for being with us.</p>
-                             <p> Welcome to Victoria Migrant Health -<i>achieve best health outcome</i>
+                             <p>Hello,</p>
+                             
+                             <p>Thank you for using our service. For information of other suburbs please click <a href="vic-migrant-health.com">here</a>.
                              <br>
                              <div>
                              <table>
@@ -56,7 +63,7 @@ class Sendmail():
             message = message + """<td>""" + str(suburb_noneng) + """%</td>"""
         message = message + """
                                     </tr>
-                                    <tr><td><strong>Top 4 Cultural Groups</strong></td></tr>
+                                    <tr><td colspan="100%"><strong>Top 4 Cultural Groups</strong></td></tr>
                                     <tr>
                                         <td>1st cultural group</td>
                                     """
@@ -85,7 +92,7 @@ class Sendmail():
             message = message + """<td>""" + forth_name[i] + '(' + str(forth_per[i]) + """%)</td>"""
         message = message + """
                                     </tr>
-                                    <tr><td><strong>Education Services (counts)</strong></td></tr>
+                                    <tr><td colspan="100%"><strong>Education Services (counts)</strong></td></tr>
                                     <tr>
                                         <td>Kindergarten</td>
                                     """
@@ -114,7 +121,7 @@ class Sendmail():
             message = message + """<td>""" + str(suburb_p12) + """</td>"""
         message = message + """
                                     </tr>
-                                    <tr><td><strong>Health Services (counts)</strong></td></tr>
+                                    <tr><td colspan="100%"><strong>Health Services (counts)</strong></td></tr>
                                     <tr>
                                         <td>Mental health service</td>
                                     """

@@ -92,7 +92,7 @@
 				<h1>Services in {{ community.0.name }}</h1>
 		</div>
         <div class="row d-flex pb-50 justify-content-center">
-                <a class="btn primary-btn2 header-btn1 btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.2 }}" >Check on map</a>
+                <a class="btn primary-btn2 header-btn1 btn-lg" href="{% url 'community:map' %}?name={{ community.0.name }}&postcode={{ community.2 }}" >View on Map</a>
 		</div>
 <!--row 1-->
         <div class="panel panel-container">
@@ -304,7 +304,7 @@
         </div>
 <!--Top10-Language-->
         <div class="row pt-50 pb-50 justify-content-center">
-            <h1>Top 10 Languages spoken in {{ community.0.name }}</h1>
+            <h1>Top 10 Languages spoken in {{ community.0.name }} besides English</h1>
         </div>
         
         <div class="card">
