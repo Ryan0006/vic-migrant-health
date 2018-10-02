@@ -234,7 +234,14 @@ $('.suburb-btn').each(function(){
 		$(this).children().removeClass('badge-light').addClass('badge-secondary');
 		$(this).children().text(postcode);
 	})
-}); 
+});
+
+$('#preview').click(function(e) {
+    console.log('sd');
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+});
  
 });
 
