@@ -276,7 +276,7 @@
             <tr>
             {% for community in result_list %}
                 {% if forloop.counter == 1 %}
-                <td class="email">People Speaking <br>{{ community.2.0 }}</td>
+                <td class="email">People Speaking {{ community.2.0 }}</td>
                 {% endif %}
                 <td class="email">{{ community.2.1 }}%</td>
             {% endfor %}
@@ -288,7 +288,7 @@
             {% endfor %}
             </tr>
              <tr>
-              <td class="email">People Speak Language<br> Other Than English</td>
+              <td class="email">Non-English speakers</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.except_eng }}%</td>
             {% endfor %}
@@ -354,49 +354,49 @@
               <td colspan="100%" class="email"><strong>Health Services (counts)</strong></td>
             </tr>
             <tr>
-              <td class="email">Mental Health</td>
+              <td class="email">Mental health service</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.mental_health }}</td>
             {% endfor %}
             </tr>
             <tr>
-              <td class="email">Dental Site</td>
+              <td class="email">Dental site</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.dental }}</td>
             {% endfor %}
             </tr>
             <tr>
-              <td class="email">General Practice</td>
+              <td class="email">General practice site</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.general_practice }}</td>
             {% endfor %}
             </tr>
             <tr>
-              <td class="email">Pharmacy</td>
+              <td class="email">Pharmacy site</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.pharmacy }}</td>
             {% endfor %}
             </tr>
             <tr>
-              <td class="email">Allied Health Services</td>
+              <td class="email">Allied health site</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.allied_health }}</td>
             {% endfor %}
             </tr>
             <tr>
-              <td class="email">Complementary <br>Health Services</td>
+              <td class="email">Complementary health site</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.complementary_health }}</td>
             {% endfor %}
             </tr>
              <tr>
-              <td class="email">Disability Services</td>
+              <td class="email">Disability health service</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.disability }}</td>
             {% endfor %}
             </tr>
              <tr>
-              <td class="email">Residential Aged<br> Care Services</td>
+              <td class="email">Residential aged care facility</td>
             {% for community in result_list %}
                 <td class="email">{{ community.0.residential_aged_care }}</td>
             {% endfor %}
