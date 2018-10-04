@@ -239,6 +239,12 @@ $('.suburb-btn').each(function(){
 $('#preview').click(function(e) {
 	$("#arrow").toggleClass("arrow-down arrow-up");
 });
+
+$('#scroll-down').hover(function(){
+ $(this).css('opacity',1);
+}, function(){
+ $(this).css('opacity',0.5);
+})
  
 });
 
