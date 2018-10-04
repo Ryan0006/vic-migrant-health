@@ -1,0 +1,373 @@
+Country,Language,Country_code
+Afghanistan,Dari,AF
+Afghanistan,Pashto,AF
+Albania,Albanian,AL
+Albania,Greek,AL
+Algeria,Arabic,DZ
+Algeria,French,DZ
+Andorra,Catalan,AD
+Andorra,French,AD
+Andorra,Portuguese,AD
+Angola,Portuguese,AO
+Argentina,French,AR
+Argentina,German,AR
+Argentina,Italian,AR
+Argentina,Spanish,AR
+Armenia,Armenian,AM
+Armenia,Russian,AM
+Australia,Yorta Yorta,AU
+Australia,Norf'k-Pitcairn,AU
+Australia,Auslan,AU
+Australia,Yidiny,AU
+Australia,Pitjantjatjara,AU
+Austria,Croatian,AT
+Austria,German,AT
+Austria,Hungarian,AT
+Austria,Slovene,AT
+Azerbaijan,Armenian,AZ
+Azerbaijan,Turkic,AZ
+Azerbaijan,Azeri,AZ
+Azerbaijan,Russian,AZ
+Bahrain,Arabic,BH
+Bahrain,Urdu,BH
+Bangladesh,Bengali,BD
+Belarus,Belorussian,BY
+Belarus,Russian,BY
+Belize,Spanish,BZ
+Benin,French,BJ
+Benin,Yoruba,BJ
+Bhutan,Tibetan,BT
+Bolivia,Spanish,BO
+Bosnia and Herzegovina,Bosnian,BA
+Bosnia and Herzegovina,Croatian,BA
+Bosnia and Herzegovina,Serbian,BA
+Brazil,French,BR
+Brazil,Portuguese,BR
+Brazil,Spanish,BR
+Brunei Darussalam,Chinese,BN
+Brunei Darussalam,Malay,BN
+Bulgaria,Bulgarian,BG
+Burkina Faso,French,BF
+Burundi,French,BI
+Burundi,Swahili,BI
+Cambodia,French,KH
+Cambodia,Khmer,KH
+Cameroon,French,CM
+Canada,French,CA
+Cape Verde,Portuguese,CV
+Central African Republic,Arabic,CF
+Central African Republic,French,CF
+Central African Republic,Swahili,CF
+Chad,Arabic,TD
+Chad,French,TD
+Chile,Spanish,CL
+China,Cantonese,CN
+China,Mandarin,CN
+Colombia,Spanish,CO
+Comoros,Arabic,KM
+Comoros,French,KM
+Congo (Brazzaville),French,CD
+Congo (Brazzaville),Lingala,CD
+Congo (Brazzaville),French,CD
+Congo (Brazzaville),Lingala,CD
+Congo (Kinshasa),French,CG
+Congo (Kinshasa),Lingala,CG
+Congo (Kinshasa),French,CG
+Congo (Kinshasa),Lingala,CG
+Costa Rica,Spanish,CR
+Cote dIvoire,French,CI
+Croatia,Bosnian,HR
+Croatia,Croatian,HR
+Croatia,Czech,HR
+Croatia,German,HR
+Croatia,Hungarian,HR
+Croatia,Italian,HR
+Croatia,Serbian,HR
+Croatia,Serbo-Croatian,HR
+Croatia,Slovak,HR
+Cuba,Spanish,CU
+Cyprus,Greek,CY
+Cyprus,Turkish,CY
+Czech Republic,Czech,CZ
+Denmark,Danish,DK
+Denmark,German,DK
+Djibouti,Arabic,DJ
+Djibouti,French,DJ
+Djibouti,French,DJ
+Djibouti,Somali,DJ
+Dominican Republic,Spanish,DO
+East Timor,Indonesian,TL
+East Timor,Portuguese,TL
+East Timor,Tetum,TL
+East Timor,Tetum,TL
+Ecuador,Spanish,EC
+Egypt,Arabic,EG
+Egypt,French,EG
+El Salvador,Spanish,SV
+Equatorial Guinea,French,GQ
+Equatorial Guinea,Spanish,GQ
+Eritrea,Arabic,ER
+Eritrea,Tigrinya,ER
+Estonia,Estonian,EE
+Estonia,Finnish,EE
+Estonia,Russian,EE
+Estonia,Ukrainian,EE
+Ethiopia,Amharic,ET
+Ethiopia,Arabic,ET
+Ethiopia,Somali,ET
+Fiji,Fijian,FJ
+Fiji,Fijian Hindustani,FJ
+Finland,Finnish,FI
+Finland,Russian,FI
+Finland,Swedish,FI
+France,Basque,FR
+France,Catalan,FR
+France,French,FR
+Gabon,French,GA
+Gabon,Mandinka,GA
+Georgia,Armenian,GE
+Georgia,Georgian,GE
+Georgia,Russian,GE
+Germany,German,DE
+Ghana,Ewe,GH
+Ghana,Ga,GH
+Ghana,Akan,GH
+Greece,French,GR
+Greece,Greek,GR
+Guatemala,Spanish,GT
+Guinea,French,GN
+Guinea-Bissau,Portuguese,GW
+Guyana,Hindi,GY
+Guyana,Urdu,GY
+Haiti,French,HT
+Honduras,Spanish,HN
+Hong Kong,Cantonese,HK
+Hong Kong,Mandarin,HK
+Hungary,Hungarian,HU
+Iceland,German,IS
+Iceland,Icelandic,IS
+India,Assamese,IN
+India,Bengali,IN
+India,Gujarati,IN
+India,Hindi,IN
+India,Kannada,IN
+India,Kashmiri,IN
+India,Malayalam,IN
+India,Marathi,IN
+India,Oriya,IN
+India,Punjabi,IN
+India,Sindhi,IN
+India,Tamil,IN
+India,Telugu,IN
+India,konkani,IN
+India,Tulu,IN
+India,Urdu,IN
+Indonesia,Indonesian,ID
+Indonesia,Dutch,ID
+Indonesia,Balinese,ID
+Indonesia,Javanese,ID
+Iran,Arabic,IR
+Iran,Kurdish,IR
+Iran,Persian,IR
+Iraq,Arabic,IQ
+Iraq,Assyrian Neo-Aramaic,IQ
+Iraq,Kurdish,IQ
+Iraq,Mandaic,IQ
+Ireland,Irish,IE
+Israel,Arabic,IL
+Israel,Hebrew,IL
+Israel,Russian,IL
+Italy,French,IT
+Italy,German,IT
+Italy,Italian,IT
+Italy,Slovene,IT
+Japan,Japanese,JP
+Jordan,Arabic,JO
+Kazakhstan,Russian,KZ
+Kenya,Swahili,KE
+Kiribati,Gilbertese,KI
+Kuwait,Arabic,KW
+Kyrgyzstan,Russian,KG
+Laos,French,LA
+Laos,Lao,LA
+Latvia,Latvian,LV
+Latvia,Russian,LV
+Lebanon,Arabic,LB
+Lebanon,French,LB
+Lesotho,Xhosa,LS
+Lesotho,Zulu,LS
+Liberia,Lorma,LR
+Libya,Arabic,LY
+Libya,Arabic,LY
+Libya,Italian,LY
+Libya,Italian,LY
+Liechtenstein,German,LI
+Liechtenstein,Lithuanian,LI
+Liechtenstein,Polish,LI
+Liechtenstein,Russian,LI
+Luxembourg,French,LU
+Luxembourg,German,LU
+Macedonia,Albanian,MK
+Macedonia,Macedonian,MK
+Macedonia,Turkish,MK
+Madagascar,French,MG
+Malaysia,Chinese,MY
+Malaysia,Malay,MY
+Malaysia,Tamil,MY
+Maldives,Arabic,MV
+Maldives,Dhivehi,MV
+Maldives,Hindi,MV
+Mali,French,ML
+Malta,Maltese,MT
+Mauritania,Arabic,MR
+Mauritania,French,MR
+Mauritius,French,MU
+Mauritius,Hakka,MU
+Mauritius,Hindi,MU
+Mauritius,Urdu,MU
+Mexico,Spanish,MX
+Moldova,Russian,MD
+Monaco,French,MC
+Monaco,Italian,MC
+Mongolia,Chinese,MN
+Mongolia,Mongolian,MN
+Mongolia,Russian,MN
+Mongolia,Turkic,MN
+Montenegro,Albanian,ME
+Montenegro,Serbian,ME
+Montenegro,Serbo-Croatian,ME
+Morocco,Arabic,MA
+Morocco,French,MA
+Morocco,Spanish,MA
+Mozambique,Nyanja (Chichewa),MZ
+Mozambique,Portuguese,MZ
+Myanmar,Burmese,MM
+Myanmar,Karen,MM
+Myanmar,Rohingya,MM
+Namibia,Afrikaans,NA
+Namibia,German,NA
+Nauru,Nauruan,NR
+Nepal,Nepali,NP
+Netherlands,Dutch,NL
+Netherlands,Frisian,NL
+New Zealand,Maori (Cook Island),NZ
+New Zealand,Maori (New Zealand),NZ
+New Zealand,Spanish,NZ
+Niger,Arabic,NE
+Niger,French,NE
+Niger,Hausa,NE
+Nigeria,Hausa,NG
+Nigeria,Yoruba,NG
+Norway,Norwegian,NO
+Oman,Arabic,OM
+Pakistan,Balochi,PK
+Pakistan,Punjabi,PK
+Pakistan,Sindhi,PK
+Pakistan,Urdu,PK
+Palestinian Territory,Arabic,PS
+Palestinian Territory,French,PS
+Palestinian Territory,Hebrew,PS
+Papua New Guinea,Motu (HiriMotu),PG
+Papua New Guinea,Tok Pisin,PG
+Paraguay,Spanish,PY
+Peru,Spanish,PE
+Philippines,Ilonggo (Hiligaynon),PH
+Philippines,Cebuano,PH
+Philippines,Filipino,PH
+Philippines,Tagalog,PH
+Poland,Polish,PL
+Portugal,Portuguese,PT
+Qatar,Arabic,QA
+Romania,German,RO
+Romania,Hungarian,RO
+Romania,Romanian,RO
+Russia,Russian,RU
+Rwanda,French,RW
+Rwanda,Kinyarwanda (Rwanda),RW
+Samoa,Samoan,WS
+San Marino,Italian,SM
+Sao Tome and Principe,Portuguese,ST
+Saudi Arabia,Arabic,SA
+Senegal,French,SN
+Serbia,Albanian,RS
+Serbia,Serbian,RS
+Serbia,Serbo-Croatian,RS
+Seychelles,Seychelles Creole,SC
+Seychelles,French,SC
+Sierra Leone,Krio,SL
+Sierra Leone,Bassa,SL
+Singapore,Chinese,SG
+Singapore,Malay,SG
+Singapore,Mandarin,SG
+Singapore,Tamil,SG
+Slovakia,Hungarian,SK
+Slovakia,Slovak,SK
+Slovenia,Serbo-Croatian,SI
+Somalia,Arabic,SO
+Somalia,Italian,SO
+Somalia,Somali,SO
+South Africa,Afrikaans,ZA
+South Africa,Ndebele,ZA
+South Africa,Xhosa,ZA
+South Africa,Zulu,ZA
+South Korea,Korean,KR
+Spain,Catalan,ES
+Sri Lanka,Sinhalese,LK
+Sri Lanka,Tamil,LK
+Sudan,Arabic,SD
+Sudan,Dinka,SD
+Sudan,Nuer,SD
+Sudan,Arabic,SD
+Sudan,Dinka,SD
+Suriname,Dutch,SR
+Sweden,Swedish,SE
+Switzerland,French,CH
+Switzerland,German,CH
+Switzerland,Italian,CH
+Syria,Arabic,SY
+Syria,French,SY
+Syria,Kurdish,SY
+Taiwan,Chinese,TW
+Taiwan,Mandarin,TW
+Tajikistan,Russian,TJ
+Tajikistan,Uzbek,TJ
+Tanzania,Kirundi (Rundi),TZ
+Tanzania,Swahili,TZ
+Thailand,Chinese,TH
+Thailand,Thai,TH
+Togo,Ewe,TG
+Togo,French,TG
+Tonga,Tongan,TO
+Trinidad and Tobago,French,TT
+Trinidad and Tobago,Hindi,TT
+Trinidad and Tobago,Spanish,TT
+Tunisia,Arabic,TN
+Tunisia,French,TN
+Turkey,Kurdish,TR
+Turkey,Turkish,TR
+Turkmenistan,Russian,TM
+Turkmenistan,Turkmen,TM
+Turkmenistan,Uzbek,TM
+Tuvalu,Tuvaluan,TV
+Uganda,Luganda,UG
+Uganda,Luo,UG
+Uganda,Swahili,UG
+Ukraine,Ukrainian,UA
+United Arab Emirates,Arabic,AE
+United Kingdom,Gaelic (Scotland),GB
+United Kingdom,Welsh,GB
+United States Of America,Spanish,US
+Uruguay,Spanish,UY
+Uzbekistan,Russian,UZ
+Uzbekistan,Uzbek,UZ
+Vanuatu,Bislama,VU
+Vanuatu,French,VU
+Vatican City,Italian,VA
+Vatican City,Latin,VA
+Venezuela,Spanish,VE
+Vietnam,Chinese,VN
+Vietnam,French,VN
+Vietnam,Khmer,VN
+Vietnam,Vietnamese,VN
+Yemen,Arabic,YE
+Liberia,Liberian English,LR

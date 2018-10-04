@@ -1,5 +1,4 @@
 common/settings.py
-community/static/community/csv/
 __pycache__/
 .idea/
 venv/
