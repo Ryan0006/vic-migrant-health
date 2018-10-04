@@ -11,8 +11,6 @@ $(function(){
 				});
 				$("#compare-btn").text("Cancel");
 				$("#goCompare-btn").attr("style","display: inline;background-color: #FFF; border-color: #000;");
-				$("#compare-div").attr("class","col col-md-6");
-				$("#gocompare-div").attr("class","col col-md-6");
 				hasOpen = true;
 				$("#compareHintModal").modal("show");
 				$(".suburb-btn").each(function(){
@@ -26,8 +24,6 @@ $(function(){
 				});
 				$("#compare-btn").text("Compare suburbs");
 				$("#goCompare-btn").attr("style","display: none;background-color: #FFF; border-color: #000;");
-				$("#compare-div").attr("class","col col-md-12");
-				$("#gocompare-div").attr("class","col col-md-12");
 				hasOpen = false;
 				$(".suburb-btn").each(function(){
 					$(this).attr("class","btn primary-btn2 suburb-btn my-2 my-sm-0");
@@ -41,9 +37,11 @@ $(function(){
 			$('#goCompare-btn').text("Go Compare (" + countCheckedCheckboxes + "/4)");
 			if (countCheckedCheckboxes <=1){
 				$('#goCompare-btn').attr("disabled","disabled");
+				$('#goCompare-btn').attr("class","btn primary-btn2");
 			}
 			else {
 				$('#goCompare-btn').removeAttr("disabled");
+				$('#goCompare-btn').attr("class","btn primary-btn2 header-btn1");
 			}
 			if (countCheckedCheckboxes >= 4){
 				$('#suburb-area input[type="checkbox"]:not(:checked)').attr("disabled", "disabled");
@@ -68,7 +66,6 @@ $( "ul" ).on( "click", "li", function() {
 });
 
 var number = $("#compare-num").data("number");
-console.log(number);
 if (number !== undefined){
 	if (number === 4){
 		$('.stat').attr("colspan",3)

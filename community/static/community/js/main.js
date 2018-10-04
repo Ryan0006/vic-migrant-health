@@ -15,7 +15,7 @@ $(document).ready(function(){
 	
 
   $(".default-header").sticky({topSpacing:0});
-
+  $(".sticky-row").sticky({topSpacing:header_height});
      // if(document.getElementById("default-select")){
           // $('select').niceSelect();
     // };
@@ -237,10 +237,7 @@ $('.suburb-btn').each(function(){
 });
 
 $('#preview').click(function(e) {
-    console.log('sd');
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
+	$("#arrow").toggleClass("arrow-down arrow-up");
 });
  
 });
