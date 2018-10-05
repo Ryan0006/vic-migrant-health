@@ -23,14 +23,14 @@
                         <form method="POST" action="{% url 'community:findsuburb' %}#result">{% csrf_token %}
                             <div class="row">
                                 <div class="col col-sm-12 col-md-5">
-                                    <select name="country" class="input-group"></select>
+                                    <select name="country" class="input-group" style="width: 100%;"></select>
                                 </div>
                                 <div class="col col-sm-12 col-md-5 input-group input-group-lg">
-                                    <select name="language" class="form-control" required="true"></select>
+                                    <select name="language" class="form-control" style="width: 100%;" required="true"></select>
                                 </div>
                                 <div class="col col-sm-12 col-md-2">
-                                    <button class="btn btn-default header-btn btn-lg w-100" type="submit"><i
-                                            class="fa fa-xl fa-search" style="color: black"></i> Search</button>
+                                    <button class="btn btn-default header-btn btn-lg" type="submit" style="white-space:normal;">
+                                        <i class="fa fa-xl fa-search" style="color: black"></i> Search</button>
                                 </div>
                                 {% if country %}
                                 <div id="selected-country" data-country="{{ country }}" style="display:none"></div>
@@ -47,14 +47,14 @@
                                     <div class="row">
                                     <div class="col col-md-4">
                                         <div class="dropdown w-100">
-                                          <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownHealthNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          <button class="btn primary-btn2 dropdown-toggle w-100 newline" type="button" id="dropdownHealthNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Health Service
                                           </button>
                                           <div class="dropdown-menu w-100" aria-labelledby="dropdownHealthNeeds">
                                               <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                 <input id="mentalCheck" type="checkbox" class="healthCheck" name="filters" value="mental_health" {% if 'mental_health' in filters %}checked{% endif %}/> 
-                                                <label class="form-check-label" for="mentalCheck">
+                                                <label class="form-check-label newline" for="mentalCheck">
                                                     Mental Health Service
                                                 </label>
                                                 </div>
@@ -62,7 +62,7 @@
                                               <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="dentalCheck" type="checkbox" class="healthCheck" name="filters" value="dental" {% if 'dental' in filters %}checked{% endif %}/>
-                                                <label class="form-check-label" for="dentalCheck">
+                                                <label class="form-check-label newline" for="dentalCheck">
                                                     Dental Service
                                                 </label>
                                                 </div>
@@ -70,7 +70,7 @@
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="general_practiceCheck" type="checkbox" class="healthCheck" name="filters" value="general_practice" {% if 'general_practice' in filters %}checked{% endif %}/>
-                                                <label class="form-check-label" for="general_practiceCheck">
+                                                <label class="form-check-label newline" for="general_practiceCheck">
                                                     General Practice
                                                 </label>
                                                 </div>
@@ -78,7 +78,7 @@
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="pharmacyCheck" type="checkbox" class="healthCheck" name="filters" value="pharmacy" {% if 'pharmacy' in filters %}checked{% endif %}/>
-                                                <label class="form-check-label" for="pharmacyCheck">
+                                                <label class="form-check-label newline" for="pharmacyCheck">
                                                     Pharmacy
                                                 </label>
                                                 </div>
@@ -86,7 +86,7 @@
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="allied_healthCheck" type="checkbox" class="healthCheck" name="filters" value="allied_health" {% if 'allied_health' in filters %}checked{% endif %}/>
-                                                <label class="form-check-label" for="allied_healthCheck">
+                                                <label class="form-check-label newline" for="allied_healthCheck">
                                                     Allied Health Service
                                                 </label>
                                                 </div>
@@ -94,7 +94,7 @@
                                                 <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="complementary_healthCheck" type="checkbox" class="healthCheck" name="filters" value="complementary_health" {% if 'complementary_health' in filters %}checked{% endif %}/>
-                                                <label class="form-check-label" for="complementary_healthCheck">
+                                                <label class="form-check-label newline" for="complementary_healthCheck">
                                                     Complementary <br>Health Service
                                                 </label>
                                                 </div>
@@ -102,7 +102,7 @@
                                               <div class="dropdown-item">
                                                 <div class="custom-checkbox">
                                                  <input id="all_healthCheck" type="checkbox" class="healthCheck"/>
-                                                <label class="form-check-label" for="all_healthCheck">
+                                                <label class="form-check-label newline" for="all_healthCheck">
                                                     Need All
                                                 </label>
                                                 </div>
@@ -114,14 +114,14 @@
 
                             <div class="col col-md-4">
                                 <div class="dropdown w-100">
-                                  <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownEducationNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <button class="btn primary-btn2 dropdown-toggle w-100 newline" type="button" id="dropdownEducationNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Education Service
                                   </button>
                                   <div class="dropdown-menu w-100" aria-labelledby="dropdownEducationNeeds">
                                       <div class="dropdown-item">
                                         <div class="custom-checkbox">
                                          <input id="kindergartenCheck" type="checkbox" class="educationCheck" name="filters" value="kindergarten" {% if 'kindergarten' in filters %}checked{% endif %}/>
-                                        <label class="form-check-label" for="kindergartenCheck">
+                                        <label class="form-check-label newline" for="kindergartenCheck">
                                             kindergarten
                                         </label>
                                         </div>
@@ -129,7 +129,7 @@
                                       <div class="dropdown-item">
                                         <div class="custom-checkbox">
                                          <input id="primary_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="primary_school" {% if 'primary_school' in filters %}checked{% endif %}/>
-                                        <label class="form-check-label" for="primary_schoolCheck">
+                                        <label class="form-check-label newline" for="primary_schoolCheck">
                                             Primary School
                                         </label>
                                         </div>
@@ -137,7 +137,7 @@
                                         <div class="dropdown-item">
                                         <div class="custom-checkbox">
                                          <input id="secondary_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="secondary_school" {% if 'secondary_school' in filters %}checked{% endif %}/>
-                                        <label class="form-check-label" for="secondary_schoolCheck">
+                                        <label class="form-check-label newline" for="secondary_schoolCheck">
                                             Secondary School
                                         </label>
                                         </div>
@@ -145,7 +145,7 @@
                                         <div class="dropdown-item">
                                         <div class="custom-checkbox">
                                          <input id="p12_schoolCheck" type="checkbox" class="educationCheck" name="filters" value="p12_school" {% if 'p12_school' in filters %}checked{% endif %}/>
-                                        <label class="form-check-label" for="p12_schoolCheck">
+                                        <label class="form-check-label newline" for="p12_schoolCheck">
                                             P-12 School
                                         </label>
                                         </div>
@@ -153,7 +153,7 @@
                                         <div class="dropdown-item">
                                             <div class="custom-checkbox">
                                              <input id="all_educationCheck" type="checkbox" class="educationCheck"/>
-                                            <label class="form-check-label" for="all_educationCheck">
+                                            <label class="form-check-label newline" for="all_educationCheck">
                                                 Need All
                                             </label>
                                             </div>
@@ -164,14 +164,14 @@
                                 
                             <div class="col col-md-4">
                                     <div class="dropdown w-100">
-                                      <button class="btn primary-btn2 dropdown-toggle w-100" type="button" id="dropdownOtherNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <button class="btn primary-btn2 dropdown-toggle w-100 newline" type="button" id="dropdownOtherNeeds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Other Service
                                       </button>
                                       <div class="dropdown-menu w-100" aria-labelledby="dropdownOtherNeeds">
                                             <div class="dropdown-item">
                                             <div class="custom-checkbox">
                                              <input id="disabilityCheck" type="checkbox" class="otherCheck" name="filters" value="disability" {% if 'disability' in filters %}checked{% endif %}/>
-                                            <label class="form-check-label" for="disabilityCheck">
+                                            <label class="form-check-label newline" for="disabilityCheck">
                                                 Disability Service
                                             </label>
                                             </div>
@@ -179,7 +179,7 @@
                                           <div class="dropdown-item">
                                             <div class="custom-checkbox">
                                              <input id="residential_aged_careCheck" type="checkbox" class="otherCheck" name="filters" value="residential_aged_care" {% if 'residential_aged_care' in filters %}checked{% endif %}/>
-                                            <label class="form-check-label" for="residential_aged_careCheck">
+                                            <label class="form-check-label newline" for="residential_aged_careCheck">
                                                 Residential Aged <br>Care Service
                                             </label>
                                             </div>
@@ -187,7 +187,7 @@
                                           <div class="dropdown-item">
                                             <div class="custom-checkbox">
                                              <input id="all_otherCheck" type="checkbox" class="otherCheck"/>
-                                            <label class="form-check-label" for="all_otherCheck">
+                                            <label class="form-check-label newline" for="all_otherCheck">
                                                 Need All
                                             </label>
                                             </div>

@@ -3349,3 +3349,7 @@ iframe {
     border-right: 8px solid transparent;
     border-top: 10px solid black;
 }
+
+.newline {
+    white-space:normal;
+}
