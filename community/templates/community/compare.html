@@ -43,13 +43,14 @@
 </ul>  
     {% if filters %}<h4 class="pb-20"><i>Selected services have been highlighted</i></h4>{% endif %}
 <table>
+    <col width="20%">
   <thead>
     <tr>
       <th class="hide"></th>
     {% for community in result_list %}
         <th class="bg-blue pt-20 pb-20 stat">
             <span class="txt-l">{{ community.0.name }}</span><br>
-            <a class="btn primary-btn2 header-btn1" href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a>
+            <a class="btn primary-btn2 header-btn1 newline" href="{% url 'community:result' %}?name={{ community.0.name }}&postcode={{ community.3 }}&country={{ community.4 }}&language={{ community.2.0 }}">See Detail</a>
         </th>
     {% endfor %}
     </tr>
