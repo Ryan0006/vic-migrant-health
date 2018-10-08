@@ -75,9 +75,9 @@ $(function() {
 	function formatCountry (country) {
 	  if (!country.id) { return country.text; }
 	  var $country = $(
-	  '<div class="row align-items-center">' +
-		'<span class="flag flag-'+ country.code.toLowerCase() + '"></span>' +
-		'<span class="flag-text">'+ country.text+"</span>" +
+	  '<div style="display:flex;align-items:center;">' +
+		'<div class="flag flag-'+ country.code.toLowerCase() + '"></div>' +
+		'<div class="flag-text" style="text-align: top;">'+ country.text+"</div>" +
 	  '</div>'
 	  );
 	  return $country;
@@ -144,7 +144,7 @@ $(function() {
 
 	  if (!language.id) { return language.text; }
 	  var $language = $(
-	  '<div class="row align-items-center">' +
+	  '<div class="row align-items-center" style="display:block;">' +
 		'<span class="flag-text">'+ language.text+"</span>" +
 	  '</div>'
 	  );
