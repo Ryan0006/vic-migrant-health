@@ -303,6 +303,7 @@
 			</div>
         </div>
 <!--Top10-Language-->
+        {% if community.1 %}
         <div class="row pt-50 pb-50 justify-content-center">
             <h1>Top 10 Languages spoken in {{ community.0.name }} besides English</h1>
         </div>
@@ -328,10 +329,12 @@
                 {% endfor %}
             </div> 
         </div>
+        {% endif %}
+
         </div>
 </section>
 
-    {% endfor %}
+{% endfor %}
 
 {% else %}
 <!--Error-Message-->
