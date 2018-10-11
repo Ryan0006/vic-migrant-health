@@ -27,7 +27,7 @@ Install python package
 source <path to venv>/venv/bin/activate
 pip3 install -r requirements.txt
 ```
-Set following environment variable
+Set following environment variable in common/settings.py
 ```
 ALLOWED_HOSTS=<your allowed hosts>
 SECRET_KEY=<your secret key>
