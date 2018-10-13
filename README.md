@@ -50,5 +50,4 @@ Deploy to local server
 python3 manage.py runserver
 ```
 Deploy to production server
-
 Refer to Django documentation checklist for details -  https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/

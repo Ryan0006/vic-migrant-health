@@ -295,17 +295,30 @@ def readHospital(request):
             if header:
                 header = False
             else:
-                _, created = Hospital.objects.get_or_create(
-                    name=row[2],
-                    type=row[3],
-                    street_number=row[4],
-                    road_name=row[5],
-                    road_type=row[6],
-                    suburb=row[7],
-                    postcode=row[9],
-                    latitude=row[1],
-                    longitude=row[0],
-                )
+                if row[8] == '':
+                    _, created = Hospital.objects.get_or_create(
+                        name=row[2],
+                        type=row[3],
+                        street_number=row[4],
+                        road_name=row[5],
+                        road_type=row[6],
+                        suburb=row[7],
+                        postcode=row[9],
+                        latitude=row[1],
+                        longitude=row[0],
+                    )
+                else:
+                    _, created = Hospital.objects.get_or_create(
+                        name=row[2],
+                        type=row[3],
+                        street_number=row[4],
+                        road_name=row[5],
+                        road_type=row[6],
+                        suburb=row[8],
+                        postcode=row[9],
+                        latitude=row[1],
+                        longitude=row[0],
+                    )
     return render(request, "community/index.html", {})
 
 

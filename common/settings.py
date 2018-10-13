@@ -13,17 +13,17 @@ SECRET_KEY = '4(*1@^z1z$hcf@e&veci5aj+6@6j8ne2&2yucyj(#b@ay)rru%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+ALLOWED_HOSTS = ['35.197.180.115','www.vic-migrant-health.com','127.0.0.1','localhost','vic-migrant-health.com']
 
 #sendgrid email
-EMAIL_HOST =
-EMAIL_HOST_USER =
-EMAIL_HOST_PASSWORD =
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 #google maps api key
-GOOGLE_MAPS_API_KEY = 
+GOOGLE_MAPS_API_KEY = 'AIzaSyAFiH5opdvLigxZuCeagWWsn12-5NO-jEo'
 
 # Application definition
 
